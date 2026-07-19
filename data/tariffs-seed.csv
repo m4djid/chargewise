@@ -1,0 +1,226 @@
+emsp_plan_id,cpo_id,station_id,connector_type,max_power_kw_min,max_power_kw_max,session_fee_eur,per_kwh_eur,per_min_eur,idle_fee_per_min_eur,idle_fee_grace_min,valid_from,valid_to,data_source,confidence_score,notes
+chargemap-pass-gratuit,ionity,,,,,0,0.69,,0.20,35,2026-07-01,,manual,75,seed estimate
+chargemap-pass-gratuit,totalenergies,,,,,0,0.56,,0.40,35,2026-07-01,,manual,60,seed estimate
+chargemap-pass-gratuit,recharge,,,,,0,0.59,,0.50,45,2026-07-01,,manual,70,seed estimate
+chargemap-pass-gratuit,fastned,,,,,0,0.63,,0.40,45,2026-07-01,,manual,75,seed estimate
+chargemap-pass-gratuit,freshmile,,,,,0,0.49,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-gratuit,electra,,,,,0,0.53,,0.20,35,2026-07-01,,manual,60,seed estimate
+chargemap-pass-gratuit,chargepoint,,,,,0,0.52,,,,2026-07-01,,manual,75,seed estimate
+chargemap-pass-gratuit,lidl,,,,,0,0.36,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-gratuit,leclerc,,,,,0,0.34,,,,2026-07-01,,manual,70,seed estimate
+chargemap-pass-gratuit,engie-vianeo,,,,,0,0.56,,0.30,40,2026-07-01,,manual,80,seed estimate
+chargemap-pass-gratuit,allego,,,,,0,0.64,,0.40,40,2026-07-01,,manual,75,seed estimate
+chargemap-pass-gratuit,izivia,,,,,0,0.48,,,,2026-07-01,,manual,60,seed estimate
+chargemap-pass-gratuit,powerdot,,,,,0,0.46,,0.30,40,2026-07-01,,manual,75,seed estimate
+chargemap-pass-gratuit,bouygues,,,,,0,0.44,,,,2026-07-01,,manual,60,seed estimate
+chargemap-pass-gratuit,driveco,,,,,0,0.49,,,,2026-07-01,,manual,65,seed estimate
+chargemap-pass-gratuit,e-totem,,,,,0,0.50,,,,2026-07-01,,manual,65,seed estimate
+chargemap-pass-gratuit,morrow,,,,,0,0.51,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-gratuit,sowatt,,,,,0,0.42,,,,2026-07-01,,manual,70,seed estimate
+chargemap-pass-gratuit,virta,,,,,0,0.50,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-gratuit,wattzhub,,,,,0,0.47,,,,2026-07-01,,manual,70,seed estimate
+chargemap-pass-pro,ionity,,,,,0,0.66,,0.40,40,2026-07-01,,manual,60,seed estimate
+chargemap-pass-pro,totalenergies,,,,,0,0.53,,0.50,40,2026-07-01,,manual,70,seed estimate
+chargemap-pass-pro,recharge,,,,,0,0.56,,0.20,40,2026-07-01,,manual,75,seed estimate
+chargemap-pass-pro,fastned,,,,,0,0.60,,0.10,45,2026-07-01,,manual,60,seed estimate
+chargemap-pass-pro,freshmile,,,,,0,0.46,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-pro,electra,,,,,0,0.50,,0.40,40,2026-07-01,,manual,75,seed estimate
+chargemap-pass-pro,chargepoint,,,,,0,0.49,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-pro,lidl,,,,,0,0.33,,,,2026-07-01,,manual,70,seed estimate
+chargemap-pass-pro,leclerc,,,,,0,0.31,,,,2026-07-01,,manual,70,seed estimate
+chargemap-pass-pro,engie-vianeo,,,,,0,0.53,,0.10,40,2026-07-01,,manual,60,seed estimate
+chargemap-pass-pro,allego,,,,,0,0.61,,0.20,35,2026-07-01,,manual,65,seed estimate
+chargemap-pass-pro,izivia,,,,,0,0.45,,,,2026-07-01,,manual,70,seed estimate
+chargemap-pass-pro,powerdot,,,,,0,0.43,,0.20,40,2026-07-01,,manual,75,seed estimate
+chargemap-pass-pro,bouygues,,,,,0,0.41,,,,2026-07-01,,manual,65,seed estimate
+chargemap-pass-pro,driveco,,,,,0,0.46,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-pro,e-totem,,,,,0,0.47,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-pro,morrow,,,,,0,0.48,,,,2026-07-01,,manual,65,seed estimate
+chargemap-pass-pro,sowatt,,,,,0,0.39,,,,2026-07-01,,manual,80,seed estimate
+chargemap-pass-pro,virta,,,,,0,0.47,,,,2026-07-01,,manual,75,seed estimate
+chargemap-pass-pro,wattzhub,,,,,0,0.44,,,,2026-07-01,,manual,60,seed estimate
+plugsurfing-go,ionity,,,,,0.49,0.69,,0.20,40,2026-07-01,,manual,65,seed estimate
+plugsurfing-go,totalenergies,,,,,0.49,0.58,,0.20,45,2026-07-01,,manual,75,seed estimate
+plugsurfing-go,recharge,,,,,0.49,0.61,,0.50,45,2026-07-01,,manual,80,seed estimate
+plugsurfing-go,fastned,,,,,0.49,0.65,,0.10,40,2026-07-01,,manual,60,seed estimate
+plugsurfing-go,freshmile,,,,,0.49,0.51,,,,2026-07-01,,manual,80,seed estimate
+plugsurfing-go,electra,,,,,0.49,0.55,,0.10,45,2026-07-01,,manual,75,seed estimate
+plugsurfing-go,chargepoint,,,,,0.49,0.54,,,,2026-07-01,,manual,70,seed estimate
+plugsurfing-go,lidl,,,,,0.49,0.38,,,,2026-07-01,,manual,60,seed estimate
+plugsurfing-go,leclerc,,,,,0.49,0.36,,,,2026-07-01,,manual,75,seed estimate
+plugsurfing-go,engie-vianeo,,,,,0.49,0.58,,0.10,40,2026-07-01,,manual,70,seed estimate
+plugsurfing-go,allego,,,,,0.49,0.66,,0.20,40,2026-07-01,,manual,65,seed estimate
+plugsurfing-go,izivia,,,,,0.49,0.50,,,,2026-07-01,,manual,75,seed estimate
+plugsurfing-go,powerdot,,,,,0.49,0.48,,0.40,30,2026-07-01,,manual,60,seed estimate
+plugsurfing-go,bouygues,,,,,0.49,0.46,,,,2026-07-01,,manual,70,seed estimate
+plugsurfing-go,driveco,,,,,0.49,0.51,,,,2026-07-01,,manual,65,seed estimate
+plugsurfing-go,e-totem,,,,,0.49,0.52,,,,2026-07-01,,manual,65,seed estimate
+plugsurfing-go,morrow,,,,,0.49,0.53,,,,2026-07-01,,manual,80,seed estimate
+plugsurfing-go,sowatt,,,,,0.49,0.44,,,,2026-07-01,,manual,70,seed estimate
+plugsurfing-go,virta,,,,,0.49,0.52,,,,2026-07-01,,manual,65,seed estimate
+plugsurfing-go,wattzhub,,,,,0.49,0.49,,,,2026-07-01,,manual,65,seed estimate
+plugsurfing-plus,ionity,,,,,0,0.65,,0.50,45,2026-07-01,,manual,70,seed estimate
+plugsurfing-plus,totalenergies,,,,,0,0.52,,0.20,45,2026-07-01,,manual,65,seed estimate
+plugsurfing-plus,recharge,,,,,0,0.55,,0.30,45,2026-07-01,,manual,75,seed estimate
+plugsurfing-plus,fastned,,,,,0,0.59,,0.30,40,2026-07-01,,manual,70,seed estimate
+plugsurfing-plus,freshmile,,,,,0,0.45,,,,2026-07-01,,manual,75,seed estimate
+plugsurfing-plus,electra,,,,,0,0.49,,0.40,45,2026-07-01,,manual,80,seed estimate
+plugsurfing-plus,chargepoint,,,,,0,0.48,,,,2026-07-01,,manual,65,seed estimate
+plugsurfing-plus,lidl,,,,,0,0.32,,,,2026-07-01,,manual,70,seed estimate
+plugsurfing-plus,leclerc,,,,,0,0.30,,,,2026-07-01,,manual,60,seed estimate
+plugsurfing-plus,engie-vianeo,,,,,0,0.52,,0.30,45,2026-07-01,,manual,65,seed estimate
+plugsurfing-plus,allego,,,,,0,0.60,,0.30,40,2026-07-01,,manual,60,seed estimate
+plugsurfing-plus,izivia,,,,,0,0.44,,,,2026-07-01,,manual,65,seed estimate
+plugsurfing-plus,powerdot,,,,,0,0.42,,0.20,45,2026-07-01,,manual,70,seed estimate
+plugsurfing-plus,bouygues,,,,,0,0.40,,,,2026-07-01,,manual,80,seed estimate
+plugsurfing-plus,driveco,,,,,0,0.45,,,,2026-07-01,,manual,70,seed estimate
+plugsurfing-plus,e-totem,,,,,0,0.46,,,,2026-07-01,,manual,75,seed estimate
+plugsurfing-plus,morrow,,,,,0,0.47,,,,2026-07-01,,manual,75,seed estimate
+plugsurfing-plus,sowatt,,,,,0,0.38,,,,2026-07-01,,manual,60,seed estimate
+plugsurfing-plus,virta,,,,,0,0.46,,,,2026-07-01,,manual,70,seed estimate
+plugsurfing-plus,wattzhub,,,,,0,0.43,,,,2026-07-01,,manual,80,seed estimate
+totalenergies-standard,ionity,,,,,0,0.68,,0.10,40,2026-07-01,,manual,70,seed estimate
+totalenergies-standard,recharge,,,,,0,0.58,,0.20,30,2026-07-01,,manual,60,seed estimate
+totalenergies-standard,fastned,,,,,0,0.62,,0.20,35,2026-07-01,,manual,80,seed estimate
+totalenergies-standard,freshmile,,,,,0,0.48,,,,2026-07-01,,manual,75,seed estimate
+totalenergies-standard,electra,,,,,0,0.52,,0.40,45,2026-07-01,,manual,75,seed estimate
+totalenergies-standard,chargepoint,,,,,0,0.51,,,,2026-07-01,,manual,80,seed estimate
+totalenergies-standard,lidl,,,,,0,0.35,,,,2026-07-01,,manual,70,seed estimate
+totalenergies-standard,leclerc,,,,,0,0.33,,,,2026-07-01,,manual,75,seed estimate
+totalenergies-standard,engie-vianeo,,,,,0,0.55,,0.50,45,2026-07-01,,manual,60,seed estimate
+totalenergies-standard,allego,,,,,0,0.63,,0.20,35,2026-07-01,,manual,80,seed estimate
+totalenergies-standard,izivia,,,,,0,0.47,,,,2026-07-01,,manual,80,seed estimate
+totalenergies-standard,powerdot,,,,,0,0.45,,0.20,45,2026-07-01,,manual,70,seed estimate
+totalenergies-standard,bouygues,,,,,0,0.43,,,,2026-07-01,,manual,70,seed estimate
+totalenergies-standard,driveco,,,,,0,0.48,,,,2026-07-01,,manual,60,seed estimate
+totalenergies-standard,e-totem,,,,,0,0.49,,,,2026-07-01,,manual,70,seed estimate
+totalenergies-standard,morrow,,,,,0,0.50,,,,2026-07-01,,manual,80,seed estimate
+totalenergies-standard,sowatt,,,,,0,0.41,,,,2026-07-01,,manual,60,seed estimate
+totalenergies-standard,virta,,,,,0,0.49,,,,2026-07-01,,manual,60,seed estimate
+totalenergies-standard,wattzhub,,,,,0,0.46,,,,2026-07-01,,manual,65,seed estimate
+freshmile-standard,ionity,,,,,0,0.69,,0.20,30,2026-07-01,,manual,60,seed estimate
+freshmile-standard,totalenergies,,,,,0,0.56,,0.40,30,2026-07-01,,manual,75,seed estimate
+freshmile-standard,recharge,,,,,0,0.59,,0.30,40,2026-07-01,,manual,75,seed estimate
+freshmile-standard,fastned,,,,,0,0.63,,0.40,35,2026-07-01,,manual,60,seed estimate
+freshmile-standard,electra,,,,,0,0.53,,0.20,35,2026-07-01,,manual,80,seed estimate
+freshmile-standard,chargepoint,,,,,0,0.52,,,,2026-07-01,,manual,75,seed estimate
+freshmile-standard,lidl,,,,,0,0.36,,,,2026-07-01,,manual,70,seed estimate
+freshmile-standard,leclerc,,,,,0,0.34,,,,2026-07-01,,manual,70,seed estimate
+freshmile-standard,engie-vianeo,,,,,0,0.56,,0.10,45,2026-07-01,,manual,65,seed estimate
+freshmile-standard,allego,,,,,0,0.64,,0.20,30,2026-07-01,,manual,80,seed estimate
+freshmile-standard,izivia,,,,,0,0.48,,,,2026-07-01,,manual,75,seed estimate
+freshmile-standard,powerdot,,,,,0,0.46,,0.50,40,2026-07-01,,manual,60,seed estimate
+freshmile-standard,bouygues,,,,,0,0.44,,,,2026-07-01,,manual,60,seed estimate
+freshmile-standard,driveco,,,,,0,0.49,,,,2026-07-01,,manual,65,seed estimate
+freshmile-standard,e-totem,,,,,0,0.50,,,,2026-07-01,,manual,75,seed estimate
+freshmile-standard,morrow,,,,,0,0.51,,,,2026-07-01,,manual,75,seed estimate
+freshmile-standard,sowatt,,,,,0,0.42,,,,2026-07-01,,manual,75,seed estimate
+freshmile-standard,virta,,,,,0,0.50,,,,2026-07-01,,manual,75,seed estimate
+freshmile-standard,wattzhub,,,,,0,0.47,,,,2026-07-01,,manual,60,seed estimate
+becharge-standard,ionity,,,,,0.30,0.69,,0.30,30,2026-07-01,,manual,80,seed estimate
+becharge-standard,totalenergies,,,,,0.30,0.57,,0.50,40,2026-07-01,,manual,70,seed estimate
+becharge-standard,recharge,,,,,0.30,0.60,,0.20,35,2026-07-01,,manual,75,seed estimate
+becharge-standard,fastned,,,,,0.30,0.64,,0.50,30,2026-07-01,,manual,65,seed estimate
+becharge-standard,freshmile,,,,,0.30,0.50,,,,2026-07-01,,manual,70,seed estimate
+becharge-standard,electra,,,,,0.30,0.54,,0.40,35,2026-07-01,,manual,70,seed estimate
+becharge-standard,chargepoint,,,,,0.30,0.53,,,,2026-07-01,,manual,75,seed estimate
+becharge-standard,lidl,,,,,0.30,0.37,,,,2026-07-01,,manual,75,seed estimate
+becharge-standard,leclerc,,,,,0.30,0.35,,,,2026-07-01,,manual,75,seed estimate
+becharge-standard,engie-vianeo,,,,,0.30,0.57,,0.30,45,2026-07-01,,manual,70,seed estimate
+becharge-standard,allego,,,,,0.30,0.65,,0.20,45,2026-07-01,,manual,60,seed estimate
+becharge-standard,izivia,,,,,0.30,0.49,,,,2026-07-01,,manual,75,seed estimate
+becharge-standard,powerdot,,,,,0.30,0.47,,0.30,40,2026-07-01,,manual,65,seed estimate
+becharge-standard,bouygues,,,,,0.30,0.45,,,,2026-07-01,,manual,75,seed estimate
+becharge-standard,driveco,,,,,0.30,0.50,,,,2026-07-01,,manual,75,seed estimate
+becharge-standard,e-totem,,,,,0.30,0.51,,,,2026-07-01,,manual,75,seed estimate
+becharge-standard,morrow,,,,,0.30,0.52,,,,2026-07-01,,manual,65,seed estimate
+becharge-standard,sowatt,,,,,0.30,0.43,,,,2026-07-01,,manual,60,seed estimate
+becharge-standard,virta,,,,,0.30,0.51,,,,2026-07-01,,manual,70,seed estimate
+becharge-standard,wattzhub,,,,,0.30,0.48,,,,2026-07-01,,manual,60,seed estimate
+enelxway-standard,ionity,,,,,0,0.69,,0.10,30,2026-07-01,,manual,65,seed estimate
+enelxway-standard,totalenergies,,,,,0,0.57,,0.50,45,2026-07-01,,manual,60,seed estimate
+enelxway-standard,recharge,,,,,0,0.60,,0.20,30,2026-07-01,,manual,75,seed estimate
+enelxway-standard,fastned,,,,,0,0.64,,0.20,45,2026-07-01,,manual,70,seed estimate
+enelxway-standard,freshmile,,,,,0,0.50,,,,2026-07-01,,manual,65,seed estimate
+enelxway-standard,electra,,,,,0,0.54,,0.10,40,2026-07-01,,manual,60,seed estimate
+enelxway-standard,chargepoint,,,,,0,0.53,,,,2026-07-01,,manual,80,seed estimate
+enelxway-standard,lidl,,,,,0,0.37,,,,2026-07-01,,manual,60,seed estimate
+enelxway-standard,leclerc,,,,,0,0.35,,,,2026-07-01,,manual,75,seed estimate
+enelxway-standard,engie-vianeo,,,,,0,0.57,,0.40,35,2026-07-01,,manual,80,seed estimate
+enelxway-standard,allego,,,,,0,0.65,,0.40,35,2026-07-01,,manual,65,seed estimate
+enelxway-standard,izivia,,,,,0,0.49,,,,2026-07-01,,manual,60,seed estimate
+enelxway-standard,powerdot,,,,,0,0.47,,0.10,35,2026-07-01,,manual,80,seed estimate
+enelxway-standard,bouygues,,,,,0,0.45,,,,2026-07-01,,manual,75,seed estimate
+enelxway-standard,driveco,,,,,0,0.50,,,,2026-07-01,,manual,75,seed estimate
+enelxway-standard,e-totem,,,,,0,0.51,,,,2026-07-01,,manual,75,seed estimate
+enelxway-standard,morrow,,,,,0,0.52,,,,2026-07-01,,manual,60,seed estimate
+enelxway-standard,sowatt,,,,,0,0.43,,,,2026-07-01,,manual,80,seed estimate
+enelxway-standard,virta,,,,,0,0.51,,,,2026-07-01,,manual,60,seed estimate
+enelxway-standard,wattzhub,,,,,0,0.48,,,,2026-07-01,,manual,75,seed estimate
+shell-recharge-standard,ionity,,,,,0.35,0.69,,0.50,40,2026-07-01,,manual,65,seed estimate
+shell-recharge-standard,totalenergies,,,,,0.35,0.56,,0.30,35,2026-07-01,,manual,60,seed estimate
+shell-recharge-standard,recharge,,,,,0.35,0.59,,0.30,45,2026-07-01,,manual,80,seed estimate
+shell-recharge-standard,fastned,,,,,0.35,0.63,,0.10,30,2026-07-01,,manual,65,seed estimate
+shell-recharge-standard,freshmile,,,,,0.35,0.49,,,,2026-07-01,,manual,80,seed estimate
+shell-recharge-standard,electra,,,,,0.35,0.53,,0.30,30,2026-07-01,,manual,65,seed estimate
+shell-recharge-standard,chargepoint,,,,,0.35,0.52,,,,2026-07-01,,manual,70,seed estimate
+shell-recharge-standard,lidl,,,,,0.35,0.36,,,,2026-07-01,,manual,80,seed estimate
+shell-recharge-standard,leclerc,,,,,0.35,0.34,,,,2026-07-01,,manual,75,seed estimate
+shell-recharge-standard,engie-vianeo,,,,,0.35,0.56,,0.40,35,2026-07-01,,manual,65,seed estimate
+shell-recharge-standard,allego,,,,,0.35,0.64,,0.30,45,2026-07-01,,manual,70,seed estimate
+shell-recharge-standard,izivia,,,,,0.35,0.48,,,,2026-07-01,,manual,60,seed estimate
+shell-recharge-standard,powerdot,,,,,0.35,0.46,,0.30,40,2026-07-01,,manual,80,seed estimate
+shell-recharge-standard,bouygues,,,,,0.35,0.44,,,,2026-07-01,,manual,60,seed estimate
+shell-recharge-standard,driveco,,,,,0.35,0.49,,,,2026-07-01,,manual,75,seed estimate
+shell-recharge-standard,e-totem,,,,,0.35,0.50,,,,2026-07-01,,manual,80,seed estimate
+shell-recharge-standard,morrow,,,,,0.35,0.51,,,,2026-07-01,,manual,65,seed estimate
+shell-recharge-standard,sowatt,,,,,0.35,0.42,,,,2026-07-01,,manual,75,seed estimate
+shell-recharge-standard,virta,,,,,0.35,0.50,,,,2026-07-01,,manual,80,seed estimate
+shell-recharge-standard,wattzhub,,,,,0.35,0.47,,,,2026-07-01,,manual,60,seed estimate
+maingau-standard,ionity,,,,,0,0.67,,0.20,40,2026-07-01,,manual,75,seed estimate
+maingau-standard,totalenergies,,,,,0,0.54,,0.20,35,2026-07-01,,manual,65,seed estimate
+maingau-standard,recharge,,,,,0,0.57,,0.40,40,2026-07-01,,manual,60,seed estimate
+maingau-standard,fastned,,,,,0,0.61,,0.30,40,2026-07-01,,manual,70,seed estimate
+maingau-standard,freshmile,,,,,0,0.47,,,,2026-07-01,,manual,65,seed estimate
+maingau-standard,electra,,,,,0,0.51,,0.10,35,2026-07-01,,manual,65,seed estimate
+maingau-standard,chargepoint,,,,,0,0.50,,,,2026-07-01,,manual,65,seed estimate
+maingau-standard,lidl,,,,,0,0.34,,,,2026-07-01,,manual,70,seed estimate
+maingau-standard,leclerc,,,,,0,0.32,,,,2026-07-01,,manual,60,seed estimate
+maingau-standard,engie-vianeo,,,,,0,0.54,,0.10,40,2026-07-01,,manual,65,seed estimate
+maingau-standard,allego,,,,,0,0.62,,0.40,40,2026-07-01,,manual,80,seed estimate
+maingau-standard,izivia,,,,,0,0.46,,,,2026-07-01,,manual,70,seed estimate
+maingau-standard,powerdot,,,,,0,0.44,,0.50,45,2026-07-01,,manual,70,seed estimate
+maingau-standard,bouygues,,,,,0,0.42,,,,2026-07-01,,manual,75,seed estimate
+maingau-standard,driveco,,,,,0,0.47,,,,2026-07-01,,manual,65,seed estimate
+maingau-standard,e-totem,,,,,0,0.48,,,,2026-07-01,,manual,70,seed estimate
+maingau-standard,morrow,,,,,0,0.49,,,,2026-07-01,,manual,80,seed estimate
+maingau-standard,sowatt,,,,,0,0.40,,,,2026-07-01,,manual,60,seed estimate
+maingau-standard,virta,,,,,0,0.48,,,,2026-07-01,,manual,80,seed estimate
+maingau-standard,wattzhub,,,,,0,0.45,,,,2026-07-01,,manual,60,seed estimate
+ionity-standard,ionity,,,,,0,0.59,,0.10,40,2026-07-01,,manual,60,seed estimate — IONITY direct pay-per-use
+ionity-motion,ionity,,,,,0,0.49,,0.30,35,2026-07-01,,manual,70,seed estimate — IONITY Passport Motion subscriber rate
+ionity-power,ionity,,,,,0,0.33,,0.40,45,2026-07-01,,manual,65,seed estimate — IONITY Passport Power subscriber rate
+ionity-plus,ionity,,,,,0,0.39,,0.10,30,2026-07-01,,manual,65,seed estimate — IONITY+ subscriber rate
+electra-standard,electra,,,,,0,0.44,,0.20,30,2026-07-01,,manual,75,seed estimate — Electra app native rate
+electra-abonnement,electra,,,,,0,0.39,,0.30,45,2026-07-01,,manual,75,seed estimate — Electra subscription rate
+electra-pro,electra,,,,,0,0.35,,0.50,40,2026-07-01,,manual,65,seed estimate — Electra Pro subscriber rate
+totalenergies-plus,totalenergies,,,,,0,0.39,,0.20,45,2026-07-01,,manual,65,seed estimate — TotalEnergies Charge Plus native rate
+freshmile-standard,freshmile,,,,,0,0.39,,,,2026-07-01,,manual,80,seed estimate — Freshmile native network rate
+freshmile-pro,freshmile,,,,,0,0.35,,,,2026-07-01,,manual,60,seed estimate — Freshmile Pro native network rate
+totalenergies-standard,totalenergies,,,,,0,0.45,,0.10,30,2026-07-01,,manual,70,seed estimate — TotalEnergies native network rate
+shell-recharge-plus,ionity,,,,,0.35,0.59,,0.20,35,2026-07-01,,manual,65,seed estimate — Shell Recharge Plus HPC rate
+shell-recharge-plus,fastned,,,,,0.35,0.55,,0.40,35,2026-07-01,,manual,60,seed estimate — Shell Recharge Plus HPC rate
+shell-recharge-plus,allego,,,,,0.35,0.52,,0.30,45,2026-07-01,,manual,80,seed estimate — Shell Recharge Plus HPC rate
+shell-recharge-plus,totalenergies,,,,,0.35,0.49,,0.10,30,2026-07-01,,manual,65,seed estimate — Shell Recharge Plus HPC rate
+becharge-plus,ionity,,,,,0.30,0.62,,0.20,35,2026-07-01,,manual,60,seed estimate — Be Charge Plus subscriber rate
+becharge-plus,electra,,,,,0.30,0.45,,0.50,40,2026-07-01,,manual,60,seed estimate — Be Charge Plus subscriber rate
+enelxway-plus,ionity,,,,,0,0.62,,0.20,30,2026-07-01,,manual,65,seed estimate — Enel X Way Plus subscriber rate
+enelxway-plus,fastned,,,,,0,0.55,,0.30,30,2026-07-01,,manual,60,seed estimate — Enel X Way Plus subscriber rate
+maingau-autostrom,ionity,,,,,0,0.64,,0.20,30,2026-07-01,,manual,65,seed estimate — Maingau Autostrom Plus rate
+maingau-autostrom,fastned,,,,,0,0.54,,0.10,30,2026-07-01,,manual,80,seed estimate — Maingau Autostrom Plus rate
+maingau-autostrom,allego,,,,,0,0.49,,0.50,35,2026-07-01,,manual,80,seed estimate — Maingau Autostrom Plus rate
+chargemap-pass-business,ionity,,,,,0,0.60,,0.40,35,2026-07-01,,manual,65,seed estimate — Chargemap Business negotiated rate
+chargemap-pass-business,electra,,,,,0,0.46,,0.10,35,2026-07-01,,manual,75,seed estimate — Chargemap Business negotiated rate
+chargemap-pass-business,totalenergies,,,,,0,0.49,,0.40,45,2026-07-01,,manual,60,seed estimate — Chargemap Business negotiated rate
+plugsurfing-business,ionity,,,,,0,0.62,,0.20,30,2026-07-01,,manual,75,seed estimate — Plugsurfing Business fleet rate
+plugsurfing-business,fastned,,,,,0,0.55,,0.20,30,2026-07-01,,manual,60,seed estimate — Plugsurfing Business fleet rate

@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ChargeAdvisor (chargewise)
 
-## Getting Started
+Tells EV drivers which charging badge (eMSP subscription) gives them the cheapest rate at any nearby charger. Next.js 14 + Supabase + Vercel. The MVP v1.0 tech spec is the single source of truth.
 
-First, run the development server:
+## Stack
+
+- **Next.js 14** (App Router, TypeScript) — web app + API routes
+- **Supabase** (PostgreSQL, eu-central-1) — auth, DB, RLS
+- **Tailwind CSS** — UI
+- **PostHog EU** — analytics (consent-gated), **Sentry EU** — errors
+- **Upstash Redis** — rate limiting, **web-push** — notifications
+- **Vercel** — hosting + cron
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in Supabase keys
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Supabase setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npx supabase login
+npx supabase link --project-ref <ref>
+npx supabase db push            # applies supabase/migrations/ in order
+npx tsx scripts/import-stations.ts   # seed ~30 FR stations
+npx tsx scripts/import-tariffs.ts    # seed 200+ tariffs from data/tariffs-seed.csv
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Dashboard checklist (spec §4.1, §13):
+- Region **eu-central-1** (Frankfurt)
+- Auth providers: Email/password + Google OAuth
+- Extensions: uuid-ossp, pgcrypto, cube, earthdistance, pg_cron (auto via migration), pg_audit (dashboard only)
+- RLS check: `SELECT tablename FROM pg_tables WHERE schemaname='public' AND rowsecurity=false;` → 0 rows
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+See `.env.example`. Server-only secrets (`SUPABASE_SERVICE_ROLE_KEY`, `VAPID_PRIVATE_KEY`, `CRON_SECRET`, `INTERNAL_API_SECRET`) are Vercel **server** env vars — never `NEXT_PUBLIC_`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | dev server |
+| `npm run build` | production build |
+| `npx tsx scripts/import-tariffs.ts [csv]` | validate + upsert tariff CSV (spec §7.1 format) |
+| `npx tsx scripts/import-stations.ts` | upsert station seed |
 
-## Deploy on Vercel
+## Architecture notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Auth guard lives in `middleware.ts` (JWT via `supabase.auth.getUser()` — never `getSession()` server-side).
+- Recommendation engine: `lib/recommendation-engine.ts`, tariff precedence in `lib/tariff-resolver.ts` (station+connector+power > station+connector > station > CPO+connector > CPO).
+- GPS coordinates are **never** stored in DB or logs (GDPR) — sessionStorage only.
+- Waitlist inserts go through the `waitlist_join` SECURITY DEFINER function; the service role key is used only in the cron sync and internal push route (spec §8.1).
+- Nightly tariff sync: Vercel cron → `/api/cron/sync-tariffs` (Bearer `CRON_SECRET`).

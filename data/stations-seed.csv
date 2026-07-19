@@ -1,0 +1,33 @@
+id,cpo_id,display_name,address,city,country_code,lat,lng,connector_types,max_power_kw,num_connectors,data_source
+FR*ION*E0001,ionity,IONITY Vémars Est A1,Aire de Vémars Est A1,Vémars,FR,49.0741,2.5586,CCS2|CHAdeMO,350,12,manual
+FR*ION*E0002,ionity,IONITY Niort A10,Aire des Ruralies A10,Vouillé,FR,46.2857,-0.3853,CCS2|CHAdeMO,350,6,manual
+FR*ION*E0003,ionity,IONITY Brumath A4,Aire de Brumath A4,Brumath,FR,48.7286,7.6931,CCS2,350,8,manual
+FR*ION*E0004,ionity,IONITY Mâcon A6,Aire de Mâcon Saint-Albain A6,Saint-Albain,FR,46.4402,4.8541,CCS2|CHAdeMO,350,6,manual
+FR*ION*E0005,ionity,IONITY Chartres A11,Aire de Chartres-Bois-Paris A11,Fontenay-sur-Eure,FR,48.4113,1.4092,CCS2,350,6,manual
+FR*ION*E0006,ionity,IONITY Reims A4,Aire de Reims Champagne Sud A4,Val-de-Vesle,FR,49.1809,4.2264,CCS2,350,6,manual
+FR*ELC*E0001,electra,Electra Paris 15 Vaugirard,391 rue de Vaugirard,Paris,FR,48.8331,2.2931,CCS2,225,8,manual
+FR*ELC*E0002,electra,Electra Strasbourg Rivétoile,3 place Dauphine,Strasbourg,FR,48.5744,7.7601,CCS2,225,8,manual
+FR*ELC*E0003,electra,Electra Lyon Confluence,112 cours Charlemagne,Lyon,FR,45.7412,4.8184,CCS2,225,8,manual
+FR*ELC*E0004,electra,Electra Schiltigheim Espace Européen,9 avenue de l'Europe,Schiltigheim,FR,48.6068,7.7311,CCS2,225,4,manual
+FR*ELC*E0005,electra,Electra Mundolsheim Cora,Rue du Chemin de Fer,Mundolsheim,FR,48.6417,7.7132,CCS2,300,8,manual
+FR*FSN*E0001,fastned,Fastned Aire de Nemours A6,Aire de Nemours-Loiret A6,Darvault,FR,48.2439,2.7278,CCS2|CHAdeMO,300,8,manual
+FR*FSN*E0002,fastned,Fastned La Sarthe Touraine A28,Aire de la Sarthe Touraine A28,Dissay-sous-Courcillon,FR,47.6584,0.4841,CCS2,300,4,manual
+FR*TEC*E0001,totalenergies,TotalEnergies La Défense,2 place de la Défense,Puteaux,FR,48.8917,2.2361,CCS2|CHAdeMO|Type2,175,6,manual
+FR*TEC*E0002,totalenergies,TotalEnergies Paris Porte d'Orléans,Avenue de la Porte d'Orléans,Paris,FR,48.8233,2.3255,CCS2|Type2,175,4,manual
+FR*TEC*E0003,totalenergies,TotalEnergies Relais Strasbourg Etoile,Route du Rhin,Strasbourg,FR,48.5713,7.7648,CCS2,175,4,manual
+FR*VIA*E0001,engie-vianeo,Engie Vianeo Aire d'Ostwald A35,A35 Aire d'Ostwald,Ostwald,FR,48.5455,7.7113,CCS2|CHAdeMO,300,6,manual
+FR*VIA*E0002,engie-vianeo,Engie Vianeo A35 Sélestat,Aire de Sélestat A35,Sélestat,FR,48.2436,7.4364,CCS2,300,4,manual
+FR*FR1*E0001,freshmile,Freshmile Strasbourg Étoile,1 route du Rhin,Strasbourg,FR,48.5741,7.7569,CCS2|Type2,50,4,manual
+FR*FR1*E0002,freshmile,Freshmile Entzheim Aéroparc,2 rue des Hérons,Entzheim,FR,48.5372,7.6285,Type2,22,6,manual
+FR*FR1*E0003,freshmile,Freshmile Colmar Gare,9 place de la Gare,Colmar,FR,48.0733,7.3472,CCS2|Type2,50,4,manual
+FR*LDL*E0001,lidl,Lidl Strasbourg Neudorf,201 route du Polygone,Strasbourg,FR,48.5636,7.7663,CCS2|Type2,90,4,manual
+FR*LDL*E0002,lidl,Lidl Illkirch-Graffenstaden,178 route de Lyon,Illkirch-Graffenstaden,FR,48.5262,7.7203,CCS2|Type2,90,2,manual
+FR*LEC*E0001,leclerc,E.Leclerc Geispolsheim,Rue du Fort,Geispolsheim,FR,48.5158,7.6689,CCS2|Type2,150,8,manual
+FR*LEC*E0002,leclerc,E.Leclerc Vendenheim,Rue de la Robertsau ZC Nord,Vendenheim,FR,48.6704,7.7108,CCS2|Type2,150,6,manual
+FR*RCH*E0001,recharge,Recharge Paris Bercy,Quai de Bercy,Paris,FR,48.8323,2.3877,CCS2|Type2,150,4,manual
+FR*ALL*E0001,allego,Allego Roppenheim The Style Outlets,1 route de l'Europe,Roppenheim,FR,48.8394,8.0742,CCS2|CHAdeMO,150,4,manual
+FR*IZI*E0001,izivia,Izivia Grand Est Strasbourg Halles,Place des Halles,Strasbourg,FR,48.5866,7.7396,Type2,22,6,manual
+FR*PWD*E0001,powerdot,Power Dot Auchan Illkirch,Rue de la Ceinture,Illkirch-Graffenstaden,FR,48.5303,7.7189,CCS2|CHAdeMO|Type2,150,4,manual
+FR*DRV*E0001,driveco,Driveco Carrefour Écully,Chemin Jean-Marie Vianney,Écully,FR,45.7742,4.7783,CCS2|Type2,120,4,manual
+FR*ETO*E0001,e-totem,e-Totem Saint-Étienne Châteaucreux,Esplanade de France,Saint-Étienne,FR,45.4433,4.4004,CCS2|CHAdeMO|Type2,60,4,manual
+FR*CPT*E0001,chargepoint,ChargePoint Paris Rive Gauche,Avenue de France,Paris,FR,48.8299,2.3763,Type2,22,4,manual

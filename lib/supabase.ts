@@ -1,14 +1,9 @@
-import { createBrowserClient, createServerClient, type CookieOptions } from '@supabase/ssr';
+import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 
-// Client-side singleton (browser only).
-export function getBrowserClient() {
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-}
+// SERVER-ONLY module (imports next/headers). For client components use
+// lib/supabase-browser.ts.
 
 // Server components / route handlers. Reads the session from HTTP-only cookies.
 export function getServerClient() {

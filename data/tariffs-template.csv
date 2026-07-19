@@ -1,0 +1,3 @@
+emsp_plan_id,cpo_id,station_id,connector_type,max_power_kw_min,max_power_kw_max,session_fee_eur,per_kwh_eur,per_min_eur,idle_fee_per_min_eur,idle_fee_grace_min,valid_from,valid_to,data_source,confidence_score,notes
+chargemap-pass-gratuit,ionity,,,,,0,0.69,,0.30,30,2026-07-01,,manual,70,CPO-wide roaming rate example
+ionity-plus,ionity,FR*ION*E0001,CCS2,150,350,0,0.39,,0.50,45,2026-07-01,,manual,80,station-specific HPC override example

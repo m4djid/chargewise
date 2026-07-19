@@ -1,0 +1,6 @@
+# Supabase CLI project configuration (spec §4.1 — project runs in eu-central-1).
+project_id = "chargewise"
+
+[db]
+# Postgres 15+ required: tariffs_upsert_key uses UNIQUE NULLS NOT DISTINCT (0001_schema.sql).
+major_version = 15
