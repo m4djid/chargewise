@@ -61,11 +61,11 @@ export default async function AppLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <header className="sticky top-0 z-[1100] border-b border-slate-800 bg-slate-950/90 backdrop-blur">
+    <div className="min-h-screen bg-white text-stone-900">
+      <header className="sticky top-0 z-[1100] border-b border-stone-200 bg-white">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-          <Link href="/dashboard" className="flex items-center gap-1.5 font-bold">
-            <span className="text-emerald-400">⚡</span> ChargeAdvisor
+          <Link href="/dashboard" className="flex items-center gap-1.5 font-bold text-stone-900">
+            <span className="text-emerald-600">⚡</span> Chargewise
           </Link>
           {/* Desktop nav — mobile uses the bottom tab bar instead */}
           <nav className="hidden items-center gap-1 md:flex">
@@ -73,7 +73,7 @@ export default async function AppLayout({
               <Link
                 key={t.href}
                 href={t.href}
-                className="rounded-md px-3 py-1.5 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-emerald-400"
+                className="rounded-md px-3 py-1.5 text-sm text-stone-600 transition hover:bg-stone-100 hover:text-stone-900"
               >
                 {t.label}
               </Link>
@@ -90,13 +90,13 @@ export default async function AppLayout({
       <ConsentGate />
 
       {/* Mobile bottom tab bar. z above Leaflet panes (which go up to ~1000). */}
-      <nav className="fixed inset-x-0 bottom-0 z-[1100] border-t border-slate-800 bg-slate-950/95 backdrop-blur md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-[1100] border-t border-stone-200 bg-white md:hidden">
         <div className="grid grid-cols-3">
           {tabs.map((t) => (
             <Link
               key={t.href}
               href={t.href}
-              className="flex flex-col items-center gap-0.5 py-2.5 text-[11px] text-slate-400 transition hover:text-emerald-400"
+              className="flex flex-col items-center gap-0.5 py-2.5 text-[11px] text-stone-500 transition hover:text-stone-900"
             >
               {t.icon}
               {t.label}

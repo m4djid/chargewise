@@ -26,19 +26,19 @@ export default function BadgesPage() {
 
   return (
     <div className="mx-auto max-w-xl">
-      <h1 className="text-2xl font-bold">My badges</h1>
-      <p className="mt-1 text-sm text-slate-400">
+      <h1 className="text-2xl font-bold tracking-tight text-stone-900">My badges</h1>
+      <p className="mt-1 text-sm text-stone-600">
         The subscriptions we compare when recommending your cheapest option.
       </p>
 
       <section className="mt-6">
-        {isLoading && <p className="text-sm text-slate-500">Loading your badges…</p>}
+        {isLoading && <p className="text-sm text-stone-500">Loading your badges…</p>}
 
         {!isLoading && badges.length === 0 && (
-          <div className="rounded-xl border border-dashed border-slate-700 bg-slate-900/40 p-6 text-center">
+          <div className="rounded-lg border border-dashed border-stone-300 bg-stone-50 p-6 text-center">
             <p className="text-2xl">🪪</p>
-            <p className="mt-2 font-semibold">No badges yet</p>
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-2 font-semibold text-stone-900">No badges yet</p>
+            <p className="mt-1 text-sm text-stone-600">
               Add your first badge below — recommendations only work when we
               know which subscriptions you own.
             </p>
@@ -53,11 +53,11 @@ export default function BadgesPage() {
               return (
                 <li
                   key={badge.id}
-                  className="flex items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3"
+                  className="flex items-center justify-between gap-3 rounded-lg border border-stone-200 bg-white px-4 py-3 shadow-sm"
                 >
                   <div>
-                    <p className="font-medium">{plan?.display_name ?? badge.plan_id}</p>
-                    <p className="text-xs text-slate-500">
+                    <p className="font-medium text-stone-900">{plan?.display_name ?? badge.plan_id}</p>
+                    <p className="text-xs text-stone-500">
                       {emsp?.display_name ?? badge.emsp_id}
                       {' · '}
                       {plan?.monthly_fee_eur != null
@@ -70,7 +70,7 @@ export default function BadgesPage() {
                   <button
                     onClick={() => remove(badge.id)}
                     disabled={removingId === badge.id}
-                    className="shrink-0 rounded-md border border-slate-700 px-3 py-1.5 text-xs text-slate-400 transition hover:border-red-500/60 hover:text-red-400 disabled:opacity-50"
+                    className="shrink-0 rounded-md border border-stone-200 px-3 py-1.5 text-xs text-stone-500 transition hover:border-red-300 hover:text-red-600 disabled:opacity-50"
                   >
                     {removingId === badge.id ? 'Removing…' : 'Remove'}
                   </button>
@@ -81,8 +81,8 @@ export default function BadgesPage() {
         )}
       </section>
 
-      <section className="mt-8 rounded-xl border border-slate-800 bg-slate-900/40 p-4">
-        <h2 className="mb-3 font-semibold">Add a badge</h2>
+      <section className="mt-8 rounded-lg border border-stone-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-3 font-semibold text-stone-900">Add a badge</h2>
         <BadgeSelector />
       </section>
     </div>

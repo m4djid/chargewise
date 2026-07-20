@@ -57,36 +57,36 @@ export default function ConsentGate() {
   }
 
   return (
-    <div className="fixed inset-0 z-[1300] flex items-end justify-center bg-slate-950/80 p-4 backdrop-blur-sm sm:items-center">
-      <div className="w-full max-w-md rounded-xl border border-slate-700 bg-slate-900 p-6 shadow-2xl">
-        <h2 className="text-lg font-semibold text-slate-100">
+    <div className="fixed inset-0 z-[1300] flex items-end justify-center bg-stone-900/20 p-4 sm:items-center">
+      <div className="w-full max-w-md rounded-lg border border-stone-200 bg-white p-6 shadow-lg">
+        <h2 className="text-lg font-semibold text-stone-900">
           {isReConsent ? 'Our privacy policy has changed' : 'One last thing'}
         </h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <p className="mt-2 text-sm text-stone-600">
           {isReConsent
-            ? 'Please review and accept the updated terms to keep using ChargeAdvisor.'
-            : 'To use ChargeAdvisor we need your consent to our terms and privacy policy.'}
+            ? 'Please review and accept the updated terms to keep using Chargewise.'
+            : 'To use Chargewise we need your consent to our terms and privacy policy.'}
         </p>
-        <label className="mt-4 flex items-start gap-3 text-sm text-slate-300">
+        <label className="mt-4 flex items-start gap-3 text-sm text-stone-600">
           <input
             type="checkbox"
             checked={checked}
             onChange={(e) => setChecked(e.target.checked)}
-            className="mt-0.5 h-4 w-4 accent-emerald-500"
+            className="mt-0.5 h-4 w-4 accent-stone-900"
           />
           <span>
             I accept the{' '}
-            <a href="/privacy" target="_blank" className="text-emerald-400 underline">
+            <a href="/privacy" target="_blank" className="text-stone-900 underline underline-offset-2">
               Terms &amp; Privacy Policy
             </a>{' '}
             (version {CURRENT_CONSENT_VERSION})
           </span>
         </label>
-        {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+        {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
         <button
           onClick={accept}
           disabled={!checked || submitting}
-          className="mt-5 w-full rounded-lg bg-emerald-500 py-2.5 font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-5 w-full rounded-lg bg-stone-900 py-2.5 font-semibold text-white transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {submitting ? 'Saving…' : 'Accept and continue'}
         </button>

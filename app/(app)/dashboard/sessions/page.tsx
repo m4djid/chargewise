@@ -113,22 +113,22 @@ export default function SessionsPage() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <h1 className="text-2xl font-bold">Charging sessions</h1>
-      <p className="mt-1 text-sm text-slate-400">
+      <h1 className="text-2xl font-bold tracking-tight text-stone-900">Charging sessions</h1>
+      <p className="mt-1 text-sm text-stone-600">
         Your reported sessions — and what a better badge would save you.
       </p>
 
       {/* ROI card */}
-      <section className="mt-5 rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-5">
+      <section className="mt-5 rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
         {sessions.length > 0 && netAtUserFrequency != null && netAtUserFrequency > 0 && bestUpsell ? (
           <>
-            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
               Monthly savings estimate
             </p>
-            <p className="mt-2 text-lg">
+            <p className="mt-2 text-lg text-stone-900">
               You charge ~{sessionsPerMonth}×/month. With{' '}
               <strong>{bestUpsell.display_name}</strong> you&apos;d save{' '}
-              <strong className="text-emerald-400">€{netAtUserFrequency.toFixed(2)} net/mo</strong>{' '}
+              <strong className="text-emerald-600">€{netAtUserFrequency.toFixed(2)} net/mo</strong>{' '}
               at your most-visited station.
             </p>
             {bestUpsell.cta_url && (
@@ -136,7 +136,7 @@ export default function SessionsPage() {
                 href={bestUpsell.cta_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+                className="mt-3 inline-block rounded-lg bg-stone-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-stone-700"
               >
                 Check out {bestUpsell.display_name} →
               </a>
@@ -144,10 +144,10 @@ export default function SessionsPage() {
           </>
         ) : (
           <>
-            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
               Savings calculator
             </p>
-            <p className="mt-2 text-sm text-slate-300">
+            <p className="mt-2 text-sm text-stone-600">
               {sessions.length === 0
                 ? 'Log your charging sessions and we will estimate how much a different subscription would save you every month, based on where you actually charge.'
                 : `You charge ~${sessionsPerMonth}×/month. Right now none of the available plans would beat your current badges at your usual stations — we will let you know when that changes.`}
@@ -159,18 +159,18 @@ export default function SessionsPage() {
       {/* Sessions list */}
       <section className="mt-6">
         {isLoading && sessions.length === 0 && (
-          <p className="py-8 text-center text-sm text-slate-500">Loading sessions…</p>
+          <p className="py-8 text-center text-sm text-stone-500">Loading sessions…</p>
         )}
         {error && sessions.length === 0 && (
-          <p className="rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300">
+          <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
             Could not load your sessions. Please try again.
           </p>
         )}
         {!isLoading && sessions.length === 0 && !error && (
-          <div className="rounded-xl border border-dashed border-slate-700 bg-slate-900/40 p-8 text-center">
+          <div className="rounded-lg border border-dashed border-stone-300 bg-stone-50 p-8 text-center">
             <p className="text-2xl">🔌</p>
-            <p className="mt-2 font-semibold">No sessions yet</p>
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-2 font-semibold text-stone-900">No sessions yet</p>
+            <p className="mt-1 text-sm text-stone-600">
               Use &quot;Log my session&quot; on the map after you charge — every
               report makes prices sharper for everyone.
             </p>
@@ -178,9 +178,9 @@ export default function SessionsPage() {
         )}
 
         {sessions.length > 0 && (
-          <div className="overflow-x-auto rounded-xl border border-slate-800">
+          <div className="overflow-x-auto rounded-lg border border-stone-200">
             <table className="w-full min-w-[540px] text-left text-sm">
-              <thead className="bg-slate-900 text-xs uppercase tracking-wide text-slate-500">
+              <thead className="bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
                 <tr>
                   <th className="px-4 py-2.5 font-medium">Date</th>
                   <th className="px-4 py-2.5 font-medium">Station</th>
@@ -198,21 +198,21 @@ export default function SessionsPage() {
                       ? s.reported_cost_eur / s.reported_kwh
                       : null);
                   return (
-                    <tr key={s.id} className="border-t border-slate-800/70">
-                      <td className="px-4 py-2.5 text-slate-400">
+                    <tr key={s.id} className="border-t border-stone-200">
+                      <td className="px-4 py-2.5 text-stone-500">
                         {new Date(s.session_date).toLocaleDateString('en-GB')}
                       </td>
-                      <td className="px-4 py-2.5">{stationNames?.get(s.station_id) ?? s.station_id}</td>
-                      <td className="px-4 py-2.5 text-slate-300">
+                      <td className="px-4 py-2.5 text-stone-900">{stationNames?.get(s.station_id) ?? s.station_id}</td>
+                      <td className="px-4 py-2.5 text-stone-600">
                         {planById.get(s.emsp_plan_id)?.display_name ?? s.emsp_plan_id}
                       </td>
-                      <td className="px-4 py-2.5 text-right">
+                      <td className="px-4 py-2.5 text-right text-stone-900">
                         {s.reported_cost_eur != null ? `€${s.reported_cost_eur.toFixed(2)}` : '—'}
                       </td>
-                      <td className="px-4 py-2.5 text-right text-slate-400">
+                      <td className="px-4 py-2.5 text-right text-stone-500">
                         {s.reported_kwh != null ? s.reported_kwh.toFixed(1) : '—'}
                       </td>
-                      <td className="px-4 py-2.5 text-right text-slate-400">
+                      <td className="px-4 py-2.5 text-right text-stone-500">
                         {perKwh != null ? `€${perKwh.toFixed(2)}` : '—'}
                       </td>
                     </tr>
@@ -228,7 +228,7 @@ export default function SessionsPage() {
             <button
               onClick={() => setPage((p) => p + 1)}
               disabled={isLoading}
-              className="rounded-lg border border-slate-700 px-5 py-2 text-sm text-slate-300 transition hover:border-emerald-500/60 hover:text-emerald-400 disabled:opacity-50"
+              className="rounded-lg border border-stone-200 bg-white px-5 py-2 text-sm text-stone-700 shadow-sm transition hover:bg-stone-50 hover:text-stone-900 disabled:opacity-50"
             >
               {isLoading ? 'Loading…' : 'Load more'}
             </button>

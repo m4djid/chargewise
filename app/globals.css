@@ -13,5 +13,5 @@
 
 /* Leaflet popups have a white body; keep their text readable on it. */
 .leaflet-popup-content {
-  color: #0f172a;
+  color: #1c1917;
 }

@@ -16,7 +16,7 @@ function ensureVapid(): boolean {
   const publicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
   const privateKey = process.env.VAPID_PRIVATE_KEY;
   if (!publicKey || !privateKey) return false;
-  webpush.setVapidDetails('mailto:hello@chargeadvisor.com', publicKey, privateKey);
+  webpush.setVapidDetails('mailto:hello@chargewise.app', publicKey, privateKey);
   vapidConfigured = true;
   return true;
 }

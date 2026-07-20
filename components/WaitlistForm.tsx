@@ -68,12 +68,12 @@ export default function WaitlistForm() {
 
   if (state === 'success') {
     return (
-      <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-6 py-5 text-center">
-        <p className="text-lg font-semibold text-emerald-400">
+      <div className="rounded-lg border border-stone-200 bg-stone-50 px-6 py-5 text-center">
+        <p className="text-lg font-semibold text-stone-900">
           {position != null ? <>You&apos;re #{position} on the list 🎉</> : <>You&apos;re on the list 🎉</>}
         </p>
-        <p className="mt-1 text-sm text-slate-300">
-          We&apos;ll email you as soon as ChargeAdvisor opens up.
+        <p className="mt-1 text-sm text-stone-600">
+          We&apos;ll email you as soon as Chargewise opens up.
         </p>
       </div>
     );
@@ -90,19 +90,19 @@ export default function WaitlistForm() {
           onFocus={fireCta}
           placeholder="you@example.com"
           aria-label="Email address"
-          className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 placeholder-slate-500 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+          className="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-stone-900 placeholder-stone-400 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
         />
         <button
           type="submit"
           onClick={fireCta}
           disabled={state === 'submitting'}
-          className="shrink-0 rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:opacity-60"
+          className="shrink-0 rounded-lg bg-stone-900 px-6 py-3 font-semibold text-white transition hover:bg-stone-700 disabled:opacity-60"
         >
           {state === 'submitting' ? 'Joining…' : 'Join the waitlist'}
         </button>
       </div>
-      {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
-      <p className="mt-2 text-xs text-slate-500">
+      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      <p className="mt-2 text-xs text-stone-500">
         Free forever for early adopters. No spam — one launch email.
       </p>
     </form>

@@ -77,29 +77,29 @@ export default function BadgeSelector({ onAdded }: BadgeSelectorProps) {
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search eMSP or plan (e.g. Chargemap, IONITY+)…"
         aria-label="Search plans"
-        className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-emerald-500"
+        className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
       />
-      {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
+      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 
       <div className="mt-3 max-h-96 space-y-4 overflow-y-auto pr-1">
-        {isLoading && <p className="text-sm text-slate-500">Loading plans…</p>}
+        {isLoading && <p className="text-sm text-stone-500">Loading plans…</p>}
         {!isLoading && grouped.length === 0 && (
-          <p className="text-sm text-slate-500">No plans match your search.</p>
+          <p className="text-sm text-stone-500">No plans match your search.</p>
         )}
         {grouped.map(({ emsp, plans: emspPlans }) => (
           <div key={emsp.id}>
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
               {emsp.display_name}
             </p>
             <ul className="mt-1.5 space-y-1.5">
               {emspPlans.map((plan) => (
                 <li
                   key={plan.id}
-                  className="flex items-center justify-between gap-3 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2"
+                  className="flex items-center justify-between gap-3 rounded-lg border border-stone-200 bg-white px-3 py-2"
                 >
                   <div className="text-sm">
-                    <p className="font-medium text-slate-200">{plan.display_name}</p>
-                    <p className="text-xs text-slate-500">
+                    <p className="font-medium text-stone-900">{plan.display_name}</p>
+                    <p className="text-xs text-stone-500">
                       {plan.monthly_fee_eur != null
                         ? `€${plan.monthly_fee_eur.toFixed(2)}/mo`
                         : 'Free'}
@@ -108,7 +108,7 @@ export default function BadgeSelector({ onAdded }: BadgeSelectorProps) {
                   <button
                     onClick={() => add(plan)}
                     disabled={addingId === plan.id || justAdded.has(plan.id)}
-                    className="shrink-0 rounded-md bg-emerald-500 px-3 py-1.5 text-xs font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:opacity-50"
+                    className="shrink-0 rounded-md bg-stone-900 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-stone-700 disabled:opacity-50"
                   >
                     {justAdded.has(plan.id) ? 'Added ✓' : addingId === plan.id ? 'Adding…' : 'Add'}
                   </button>

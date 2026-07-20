@@ -17,7 +17,7 @@ import type { StationWithDistance } from '@/types/database';
 // Leaflet touches window — must never render on the server.
 const StationMap = dynamic(() => import('@/components/StationMap'), {
   ssr: false,
-  loading: () => <div className="h-full w-full animate-pulse rounded-xl bg-slate-800" />,
+  loading: () => <div className="h-full w-full animate-pulse rounded-lg bg-stone-100" />,
 });
 
 const SESSION_KWH = 30; // default session size (spec §6.4)
@@ -34,8 +34,8 @@ const CITY_PRESETS = [
 
 function Spinner({ label }: { label: string }) {
   return (
-    <div className="flex flex-col items-center gap-3 py-20 text-slate-400">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-700 border-t-emerald-500" />
+    <div className="flex flex-col items-center gap-3 py-20 text-stone-500">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-stone-200 border-t-stone-900" />
       <p className="text-sm">{label}</p>
     </div>
   );
@@ -43,15 +43,15 @@ function Spinner({ label }: { label: string }) {
 
 function CityFallback({ onPick }: { onPick: (c: { lat: number; lng: number }) => void }) {
   return (
-    <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-5 text-center">
-      <p className="font-semibold">We couldn&apos;t determine your position</p>
-      <p className="mt-1 text-sm text-slate-400">Pick a city to browse chargers instead:</p>
+    <div className="rounded-lg border border-stone-200 bg-white p-5 text-center shadow-sm">
+      <p className="font-semibold text-stone-900">We couldn&apos;t determine your position</p>
+      <p className="mt-1 text-sm text-stone-600">Pick a city to browse chargers instead:</p>
       <div className="mt-3 flex flex-wrap justify-center gap-2">
         {CITY_PRESETS.map((c) => (
           <button
             key={c.name}
             onClick={() => onPick(c)}
-            className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-emerald-500/60 hover:text-emerald-400"
+            className="rounded-lg border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-stone-700 shadow-sm transition hover:bg-stone-50 hover:text-stone-900"
           >
             {c.name}
           </button>
@@ -154,13 +154,13 @@ function Dashboard() {
     <div>
       {/* Toolbar */}
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <div className="flex rounded-lg border border-slate-800 bg-slate-900 p-0.5 text-sm">
+        <div className="flex rounded-lg border border-stone-200 bg-stone-50 p-0.5 text-sm">
           {RADII.map((r) => (
             <button
               key={r}
               onClick={() => setRadius(r)}
               className={`rounded-md px-3 py-1.5 transition ${
-                radius === r ? 'bg-emerald-500 font-semibold text-slate-950' : 'text-slate-400 hover:text-slate-200'
+                radius === r ? 'bg-white font-semibold text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-900'
               }`}
             >
               {r} km
@@ -171,14 +171,14 @@ function Dashboard() {
           {permission === 'default' && (
             <button
               onClick={subscribe}
-              className="rounded-lg border border-slate-700 px-3 py-1.5 text-sm text-slate-300 transition hover:border-emerald-500/60 hover:text-emerald-400"
+              className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 shadow-sm transition hover:bg-stone-50 hover:text-stone-900"
             >
               🔔 Enable alerts
             </button>
           )}
           <button
             onClick={() => openLogSession()}
-            className="rounded-lg bg-emerald-500 px-3 py-1.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+            className="rounded-lg bg-stone-900 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-stone-700"
           >
             Log my session
           </button>
@@ -202,7 +202,7 @@ function Dashboard() {
       {pos && (
         <div className="space-y-4">
           {/* Map on top (45vh), scrollable card list below */}
-          <div className="h-[45vh] overflow-hidden rounded-xl border border-slate-800">
+          <div className="h-[45vh] overflow-hidden rounded-lg border border-stone-200">
             <StationMap
               center={pos}
               stations={stations}
@@ -213,12 +213,12 @@ function Dashboard() {
 
           {isLoading && <Spinner label="Finding chargers near you…" />}
           {error && (
-            <p className="rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300">
+            <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
               Could not load nearby stations. Pull to refresh or try again shortly.
             </p>
           )}
           {!isLoading && !error && stations.length === 0 && (
-            <p className="rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-center text-sm text-slate-400">
+            <p className="rounded-lg border border-stone-200 bg-stone-50 p-4 text-center text-sm text-stone-600">
               No chargers within {radius} km. Try a wider radius.
             </p>
           )}

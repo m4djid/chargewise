@@ -45,7 +45,7 @@ function upsellCta(plan: EmspPlan, emspAffiliateUrl: string | null, emspWebsiteU
   const base = emspAffiliateUrl || emspWebsiteUrl;
   if (!base) return null;
   const sep = base.includes('?') ? '&' : '?';
-  return `${base}${sep}utm_source=chargeadvisor&utm_medium=upsell`;
+  return `${base}${sep}utm_source=chargewise&utm_medium=upsell`;
 }
 
 export async function computeRecommendations(

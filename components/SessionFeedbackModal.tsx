@@ -105,42 +105,42 @@ export default function SessionFeedbackModal({
 
   return (
     <div
-      className="fixed inset-0 z-[1300] flex items-end justify-center bg-slate-950/70 p-4 backdrop-blur-sm sm:items-center"
+      className="fixed inset-0 z-[1300] flex items-end justify-center bg-stone-900/20 p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
       aria-label="Log a charging session"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900 p-5"
+        className="w-full max-w-md rounded-lg border border-stone-200 bg-white p-5 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
         {phase === 'success' ? (
           <div className="py-6 text-center">
             <p className="text-3xl">⚡</p>
-            <p className="mt-2 text-lg font-semibold text-emerald-400">
+            <p className="mt-2 text-lg font-semibold text-stone-900">
               Thanks! Every report makes prices sharper.
             </p>
             <button
               onClick={onClose}
-              className="mt-5 rounded-lg bg-emerald-500 px-6 py-2 font-semibold text-slate-950 hover:bg-emerald-400"
+              className="mt-5 rounded-lg bg-stone-900 px-6 py-2 font-semibold text-white hover:bg-stone-700"
             >
               Done
             </button>
           </div>
         ) : (
           <form onSubmit={submit}>
-            <h2 className="text-lg font-semibold">Log your charging session</h2>
-            <p className="mt-1 text-sm text-slate-400">
+            <h2 className="text-lg font-semibold text-stone-900">Log your charging session</h2>
+            <p className="mt-1 text-sm text-stone-600">
               Your report helps everyone see real prices.
             </p>
 
             <div className="mt-4 space-y-4">
               {/* Station: read-only if prefilled, otherwise pick from nearby */}
               <div>
-                <label className="mb-1 block text-sm text-slate-400">Station</label>
+                <label className="mb-1 block text-sm text-stone-600">Station</label>
                 {prefill?.station_id ? (
-                  <p className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-300">
+                  <p className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-600">
                     {stationName ?? prefill.station_id}
                   </p>
                 ) : stations.length > 0 ? (
@@ -148,7 +148,7 @@ export default function SessionFeedbackModal({
                     required
                     value={stationId}
                     onChange={(e) => setStationId(e.target.value)}
-                    className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-100 outline-none focus:border-emerald-500"
+                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
                   >
                     <option value="">Select a nearby station…</option>
                     {stations.map((s) => (
@@ -163,13 +163,13 @@ export default function SessionFeedbackModal({
                     value={stationId}
                     onChange={(e) => setStationId(e.target.value)}
                     placeholder="Station ID (e.g. FR*CM*E12345)"
-                    className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-100 outline-none focus:border-emerald-500"
+                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
                   />
                 )}
               </div>
 
               <div>
-                <label htmlFor="sf-plan" className="mb-1 block text-sm text-slate-400">
+                <label htmlFor="sf-plan" className="mb-1 block text-sm text-stone-600">
                   Badge used
                 </label>
                 <select
@@ -177,7 +177,7 @@ export default function SessionFeedbackModal({
                   required
                   value={planId}
                   onChange={(e) => setPlanId(e.target.value)}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-100 outline-none focus:border-emerald-500"
+                  className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
                 >
                   <option value="">Select your badge…</option>
                   {/* Prefilled recommendation plan may not be a badge yet */}
@@ -196,7 +196,7 @@ export default function SessionFeedbackModal({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label htmlFor="sf-cost" className="mb-1 block text-sm text-slate-400">
+                  <label htmlFor="sf-cost" className="mb-1 block text-sm text-stone-600">
                     Cost (€) *
                   </label>
                   <input
@@ -209,11 +209,11 @@ export default function SessionFeedbackModal({
                     inputMode="decimal"
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
-                    className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-100 outline-none focus:border-emerald-500"
+                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="sf-kwh" className="mb-1 block text-sm text-slate-400">
+                  <label htmlFor="sf-kwh" className="mb-1 block text-sm text-stone-600">
                     kWh (optional)
                   </label>
                   <input
@@ -225,13 +225,13 @@ export default function SessionFeedbackModal({
                     inputMode="decimal"
                     value={kwh}
                     onChange={(e) => setKwh(e.target.value)}
-                    className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-100 outline-none focus:border-emerald-500"
+                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="sf-date" className="mb-1 block text-sm text-slate-400">
+                <label htmlFor="sf-date" className="mb-1 block text-sm text-stone-600">
                   Date
                 </label>
                 <input
@@ -241,25 +241,25 @@ export default function SessionFeedbackModal({
                   max={today()}
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-sm text-slate-100 outline-none focus:border-emerald-500"
+                  className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
                 />
               </div>
             </div>
 
-            {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+            {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
 
             <div className="mt-5 flex gap-2">
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 rounded-lg border border-slate-700 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800"
+                className="flex-1 rounded-lg border border-stone-200 bg-white py-2.5 text-sm font-medium text-stone-700 shadow-sm hover:bg-stone-50"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={!valid || phase === 'submitting'}
-                className="flex-1 rounded-lg bg-emerald-500 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:opacity-50"
+                className="flex-1 rounded-lg bg-stone-900 py-2.5 text-sm font-semibold text-white transition hover:bg-stone-700 disabled:opacity-50"
               >
                 {phase === 'submitting' ? 'Saving…' : 'Save session'}
               </button>

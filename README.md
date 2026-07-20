@@ -1,4 +1,4 @@
-# ChargeAdvisor (chargewise)
+# Chargewise
 
 Tells EV drivers which charging badge (eMSP subscription) gives them the cheapest rate at any nearby charger. Next.js 14 + Supabase + Vercel. The MVP v1.0 tech spec is the single source of truth.
 

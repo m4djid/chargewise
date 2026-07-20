@@ -90,25 +90,25 @@ export default function LoginPage() {
   const submitDisabled = loading || (mode === 'signup' && !consent);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-stone-50 px-4 py-12">
       <div className="w-full max-w-sm">
-        <Link href="/" className="mb-8 flex items-center justify-center gap-2 text-xl font-bold text-slate-100">
-          <span className="text-emerald-400">⚡</span> ChargeAdvisor
+        <Link href="/" className="mb-8 flex items-center justify-center gap-2 text-xl font-bold text-stone-900">
+          <span className="text-emerald-600">⚡</span> Chargewise
         </Link>
 
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-          <div className="mb-6 grid grid-cols-2 gap-1 rounded-lg bg-slate-800 p-1 text-sm font-medium">
+        <div className="rounded-lg border border-stone-200 bg-white p-6 shadow-sm">
+          <div className="mb-6 grid grid-cols-2 gap-1 rounded-lg bg-stone-100 p-1 text-sm font-medium">
             <button
               type="button"
               onClick={() => { setMode('signin'); setError(null); setInfo(null); }}
-              className={`rounded-md py-2 transition ${mode === 'signin' ? 'bg-slate-950 text-emerald-400' : 'text-slate-400'}`}
+              className={`rounded-md py-2 transition ${mode === 'signin' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500'}`}
             >
               Sign in
             </button>
             <button
               type="button"
               onClick={() => { setMode('signup'); setError(null); setInfo(null); }}
-              className={`rounded-md py-2 transition ${mode === 'signup' ? 'bg-slate-950 text-emerald-400' : 'text-slate-400'}`}
+              className={`rounded-md py-2 transition ${mode === 'signup' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500'}`}
             >
               Create account
             </button>
@@ -116,18 +116,18 @@ export default function LoginPage() {
 
           <form onSubmit={submit} className="space-y-4">
             <div>
-              <label htmlFor="email" className="mb-1 block text-sm text-slate-400">Email</label>
+              <label htmlFor="email" className="mb-1 block text-sm text-stone-600">Email</label>
               <input
                 id="email"
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-slate-100 outline-none focus:border-emerald-500"
+                className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
               />
             </div>
             <div>
-              <label htmlFor="password" className="mb-1 block text-sm text-slate-400">Password</label>
+              <label htmlFor="password" className="mb-1 block text-sm text-stone-600">Password</label>
               <input
                 id="password"
                 type="password"
@@ -136,50 +136,50 @@ export default function LoginPage() {
                 autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-slate-100 outline-none focus:border-emerald-500"
+                className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
               />
             </div>
 
             {mode === 'signup' && (
-              <label className="flex items-start gap-2 text-sm text-slate-300">
+              <label className="flex items-start gap-2 text-sm text-stone-600">
                 {/* GDPR: never pre-checked (spec §8.3) */}
                 <input
                   type="checkbox"
                   checked={consent}
                   onChange={(e) => setConsent(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 accent-emerald-500"
+                  className="mt-0.5 h-4 w-4 accent-stone-900"
                 />
                 <span>
                   I accept the Terms and{' '}
-                  <Link href="/privacy" className="text-emerald-400 hover:underline" target="_blank">
+                  <Link href="/privacy" className="text-stone-900 underline underline-offset-2 hover:text-stone-600" target="_blank">
                     Privacy Policy
                   </Link>
                 </span>
               </label>
             )}
 
-            {error && <p className="text-sm text-red-400">{error}</p>}
-            {info && <p className="text-sm text-emerald-400">{info}</p>}
+            {error && <p className="text-sm text-red-600">{error}</p>}
+            {info && <p className="text-sm text-emerald-700">{info}</p>}
 
             <button
               type="submit"
               disabled={submitDisabled}
-              className="w-full rounded-lg bg-emerald-500 py-2.5 font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-lg bg-stone-900 py-2.5 font-semibold text-white transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {loading ? 'Please wait…' : mode === 'signin' ? 'Sign in' : 'Create account'}
             </button>
           </form>
 
-          <div className="my-5 flex items-center gap-3 text-xs text-slate-600">
-            <span className="h-px flex-1 bg-slate-800" />
+          <div className="my-5 flex items-center gap-3 text-xs text-stone-400">
+            <span className="h-px flex-1 bg-stone-200" />
             or
-            <span className="h-px flex-1 bg-slate-800" />
+            <span className="h-px flex-1 bg-stone-200" />
           </div>
 
           <button
             type="button"
             onClick={signInWithGoogle}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-700 py-2.5 text-sm font-medium text-slate-200 transition hover:bg-slate-800"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-stone-200 bg-white py-2.5 text-sm font-medium text-stone-700 shadow-sm transition hover:bg-stone-50"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden>
               <path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.2H12v4.1h6.5c-.1 1.1-.8 2.7-2.4 3.8l3.7 2.9c2.3-2.1 3.7-5.1 3.7-8.6z" />
