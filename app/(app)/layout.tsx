@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import ConsentGate from '@/components/ConsentGate';
 import SignOutButton from '@/components/SignOutButton';
+import ThemeToggle from '@/components/ThemeToggle';
 import { getServerClient } from '@/lib/supabase';
 
 // Server-side auth guard for the whole authenticated app (spec §11.1).
@@ -61,11 +62,17 @@ export default async function AppLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-white text-stone-900">
-      <header className="sticky top-0 z-[1100] border-b border-stone-200 bg-white">
+    <div className="min-h-screen bg-page text-primary">
+      <header className="sticky top-0 z-[1100] border-b border-default bg-page">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-          <Link href="/dashboard" className="flex items-center gap-1.5 font-bold text-stone-900">
-            <span className="text-emerald-600">⚡</span> Chargewise
+          <Link
+            href="/dashboard"
+            className="flex h-8 items-center gap-2 rounded-md font-display text-[16px] font-semibold leading-[24px] text-primary"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-accent" aria-hidden="true">
+              <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+            </svg>
+            Chargewise
           </Link>
           {/* Desktop nav — mobile uses the bottom tab bar instead */}
           <nav className="hidden items-center gap-1 md:flex">
@@ -73,13 +80,16 @@ export default async function AppLayout({
               <Link
                 key={t.href}
                 href={t.href}
-                className="rounded-md px-3 py-1.5 text-sm text-stone-600 transition hover:bg-stone-100 hover:text-stone-900"
+                className="flex h-8 items-center rounded-md px-3 text-[14px] leading-[20px] text-secondary transition-colors duration-fast ease-amp hover:bg-hover hover:text-primary"
               >
                 {t.label}
               </Link>
             ))}
           </nav>
-          <SignOutButton />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <SignOutButton />
+          </div>
         </div>
       </header>
 
@@ -90,13 +100,13 @@ export default async function AppLayout({
       <ConsentGate />
 
       {/* Mobile bottom tab bar. z above Leaflet panes (which go up to ~1000). */}
-      <nav className="fixed inset-x-0 bottom-0 z-[1100] border-t border-stone-200 bg-white md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-[1100] border-t border-default bg-page md:hidden">
         <div className="grid grid-cols-3">
           {tabs.map((t) => (
             <Link
               key={t.href}
               href={t.href}
-              className="flex flex-col items-center gap-0.5 py-2.5 text-[11px] text-stone-500 transition hover:text-stone-900"
+              className="flex min-h-[44px] flex-col items-center justify-center gap-1 py-2 text-[12px] leading-[16px] text-tertiary transition-colors duration-fast ease-amp hover:text-primary"
             >
               {t.icon}
               {t.label}

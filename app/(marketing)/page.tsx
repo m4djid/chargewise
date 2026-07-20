@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ThemeToggle from '@/components/ThemeToggle';
 import WaitlistForm from '@/components/WaitlistForm';
 
 // Live waitlist count is fetched at request time (spec §5.2).
@@ -88,44 +89,46 @@ export default async function LandingPage() {
   const showCount = count != null && count >= MIN_COUNT_TO_SHOW;
 
   return (
-    <div className="min-h-screen bg-white text-stone-900">
+    <div className="min-h-screen bg-page text-primary">
       {/* Hero */}
-      <section className="px-4 pb-20 pt-20 sm:pt-28">
+      <section className="px-4 pb-24 pt-20 sm:pt-28">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-stone-600">
-            <span className="text-emerald-600">⚡</span>
+          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-default bg-subtle px-3 py-1 text-[12px] font-medium leading-[16px] text-secondary">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5 text-accent" aria-hidden="true">
+              <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+            </svg>
             Chargewise
           </p>
-          <h1 className="text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl">
+          <h1 className="font-display text-[32px] font-semibold leading-[40px] tracking-tight text-primary sm:text-[48px] sm:leading-[56px]">
             Stop overpaying at public chargers
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-stone-600">
+          <p className="mx-auto mt-6 max-w-xl text-[16px] leading-[24px] text-secondary">
             Chargewise compares your charging badges in real time and tells
             you which one is cheapest at every charger near you.
           </p>
-          <div className="mx-auto mt-9 max-w-lg">
+          <div className="mx-auto mt-10 max-w-lg">
             <WaitlistForm />
           </div>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="border-y border-stone-200 bg-stone-50 px-4 py-20">
+      <section className="border-y border-default bg-subtle px-4 py-24">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-center text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+          <h2 className="text-center font-display text-[24px] font-semibold leading-[32px] tracking-tight text-primary">
             How it works
           </h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {STEPS.map((step, i) => (
-              <div key={step.title} className="rounded-lg border border-stone-200 bg-white p-6 shadow-sm">
+              <div key={step.title} className="rounded-lg border border-default bg-surface p-6 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white text-sm font-semibold text-stone-900">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-default bg-surface font-mono text-[14px] font-medium leading-[20px] text-primary">
                     {i + 1}
                   </span>
-                  <span className="text-stone-400">{step.icon}</span>
+                  <span className="text-tertiary">{step.icon}</span>
                 </div>
-                <h3 className="mt-4 font-semibold text-stone-900">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-stone-600">{step.body}</p>
+                <h3 className="mt-4 font-display text-[16px] font-semibold leading-[24px] text-primary">{step.title}</h3>
+                <p className="mt-2 text-[14px] leading-[20px] text-secondary">{step.body}</p>
               </div>
             ))}
           </div>
@@ -134,23 +137,23 @@ export default async function LandingPage() {
 
       {/* Social proof / pain point — honest: real numbers only, never invented */}
       <section className="px-4 py-16">
-        <div className="mx-auto max-w-2xl rounded-lg border border-stone-200 bg-white px-6 py-10 text-center shadow-sm">
+        <div className="mx-auto max-w-2xl rounded-lg border border-default bg-surface px-6 py-10 text-center shadow-sm">
           {showCount ? (
             <>
-              <p className="text-3xl font-bold tracking-tight text-stone-900">
-                Join {count.toLocaleString('en-US')} early adopters
+              <p className="font-display text-[24px] font-semibold leading-[32px] tracking-tight text-primary">
+                Join <span className="font-mono">{count.toLocaleString('en-US')}</span> early adopters
               </p>
-              <p className="mt-2 text-stone-600">
+              <p className="mt-2 text-[14px] leading-[20px] text-secondary">
                 EV drivers already waiting to charge smarter.
               </p>
             </>
           ) : (
             <>
-              <p className="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+              <p className="font-display text-[20px] font-semibold leading-[28px] tracking-tight text-primary sm:text-[24px] sm:leading-[32px]">
                 Charging the same car can cost{' '}
-                <span className="text-emerald-600">2× more</span> with the wrong badge.
+                <span className="font-mono">2×</span> more with the wrong badge.
               </p>
-              <p className="mt-3 text-stone-600">
+              <p className="mt-3 text-[14px] leading-[20px] text-secondary">
                 We&apos;re fixing that — be among the first to try.
               </p>
             </>
@@ -159,21 +162,21 @@ export default async function LandingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="px-4 pb-20 pt-4">
+      <section className="px-4 pb-24 pt-4">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-center text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+          <h2 className="text-center font-display text-[24px] font-semibold leading-[32px] tracking-tight text-primary">
             Frequently asked questions
           </h2>
           <div className="mt-8 space-y-3">
             {FAQS.map((faq) => (
-              <details key={faq.q} className="group rounded-lg border border-stone-200 bg-white p-5">
-                <summary className="cursor-pointer list-none font-semibold text-stone-900 marker:hidden">
+              <details key={faq.q} className="group rounded-lg border border-default bg-surface p-5">
+                <summary className="cursor-pointer list-none rounded-sm text-[14px] font-semibold leading-[20px] text-primary marker:hidden">
                   <span className="flex items-center justify-between gap-4">
                     {faq.q}
-                    <span className="text-stone-400 transition group-open:rotate-45">+</span>
+                    <span className="text-tertiary transition-transform duration-fast ease-amp group-open:rotate-45">+</span>
                   </span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-stone-600">{faq.a}</p>
+                <p className="mt-3 text-[14px] leading-[20px] text-secondary">{faq.a}</p>
               </details>
             ))}
           </div>
@@ -181,17 +184,21 @@ export default async function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-stone-200 px-4 py-10">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 text-center text-sm text-stone-500">
+      <footer className="border-t border-default px-4 py-10">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 text-center text-[13px] leading-[18px] text-tertiary">
+          <ThemeToggle />
           <p>
             We only store your email to notify you at launch. Your GPS position
             is never stored. GDPR compliant, EU-hosted.
           </p>
           <p>
-            <Link href="/privacy" className="text-stone-700 underline underline-offset-2 hover:text-stone-900">
+            <Link
+              href="/privacy"
+              className="rounded-sm text-accent-text underline underline-offset-2 transition-colors duration-fast ease-amp hover:text-accent-hover"
+            >
               Privacy policy
             </Link>
-            <span className="mx-2">·</span>© 2026 Chargewise
+            <span className="mx-2">·</span>© <span className="font-mono">2026</span> Chargewise
           </p>
         </div>
       </footer>

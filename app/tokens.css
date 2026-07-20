@@ -1,0 +1,131 @@
+/* Ampere design system — design tokens (normative).
+   Three layers: primitive → semantic → component.
+   Components consume semantic tokens only; primitives are theme-invariant. */
+
+:root {
+  /* ---------------------------------------------------------------- */
+  /* Primitives (theme-invariant)                                     */
+  /* ---------------------------------------------------------------- */
+  --amp-carbon-0: #FFFFFF;
+  --amp-carbon-50: #FAFAF8;
+  --amp-carbon-100: #F1F0EC;
+  --amp-carbon-200: #E3E2DE;
+  --amp-carbon-300: #C9C8C3;
+  --amp-carbon-400: #A5A49E;
+  --amp-carbon-500: #807F7A;
+  --amp-carbon-600: #5F5E59;
+  --amp-carbon-700: #454440;
+  --amp-carbon-800: #2B2A27;
+  --amp-carbon-900: #1B1A18;
+  --amp-carbon-950: #121110;
+
+  --amp-blue-50: #E9F7FE;
+  --amp-blue-100: #CFEDFC;
+  --amp-blue-200: #A2DDF9;
+  --amp-blue-300: #6CC9F4;
+  --amp-blue-400: #35B4EE;
+  --amp-blue-500: #0DA2E7;
+  --amp-blue-600: #0B85BE;
+  --amp-blue-700: #096995;
+  --amp-blue-800: #074E6F;
+  --amp-blue-900: #05364D;
+
+  --amp-green-50: #E8F5EE;
+  --amp-green-500: #22A06B;
+  --amp-green-600: #1B8055;
+
+  --amp-amber-50: #FCF3E3;
+  --amp-amber-500: #E8930C;
+  --amp-amber-600: #B97609;
+
+  --amp-red-50: #FBEAEA;
+  --amp-red-500: #D93838;
+  --amp-red-600: #B02D2D;
+
+  /* ---------------------------------------------------------------- */
+  /* Semantic — light theme (default)                                 */
+  /* ---------------------------------------------------------------- */
+  --amp-bg-page: var(--amp-carbon-0);
+  --amp-bg-subtle: var(--amp-carbon-50);
+  --amp-bg-hover: var(--amp-carbon-100);
+  --amp-bg-active: var(--amp-carbon-200);
+  --amp-surface: #FFFFFF;
+  --amp-surface-overlay: rgba(27, 26, 24, 0.32);
+  --amp-border-default: var(--amp-carbon-200);
+  --amp-border-strong: var(--amp-carbon-300);
+  --amp-text-primary: var(--amp-carbon-900);
+  --amp-text-secondary: var(--amp-carbon-600);
+  --amp-text-tertiary: var(--amp-carbon-500);
+  --amp-text-inverse: #FFFFFF;
+  --amp-text-on-accent: #FFFFFF;
+  --amp-accent: var(--amp-blue-500);
+  --amp-accent-hover: var(--amp-blue-600);
+  --amp-accent-active: var(--amp-blue-700);
+  --amp-accent-subtle: var(--amp-blue-50);
+  --amp-accent-text: var(--amp-blue-600);
+  --amp-status-available: var(--amp-green-500);
+  --amp-status-available-bg: var(--amp-green-50);
+  --amp-status-inuse: var(--amp-amber-500);
+  --amp-status-inuse-bg: var(--amp-amber-50);
+  --amp-status-outoforder: var(--amp-red-500);
+  --amp-status-outoforder-bg: var(--amp-red-50);
+  --amp-status-unknown: var(--amp-carbon-400);
+  --amp-status-unknown-bg: var(--amp-carbon-100);
+  --amp-shadow-sm: 0 1px 2px rgba(27, 26, 24, 0.06);
+  --amp-shadow-md: 0 2px 8px rgba(27, 26, 24, 0.10);
+  --amp-shadow-lg: 0 8px 24px rgba(27, 26, 24, 0.14);
+  --amp-focus-ring: 0 0 0 2px var(--amp-bg-page), 0 0 0 4px var(--amp-blue-500);
+
+  /* ---------------------------------------------------------------- */
+  /* Motion + radii                                                   */
+  /* ---------------------------------------------------------------- */
+  --amp-dur-fast: 120ms;
+  --amp-dur-base: 200ms;
+  --amp-dur-slow: 320ms;
+  --amp-ease: cubic-bezier(0.2, 0, 0, 1);
+  --amp-radius-sm: 4px;
+  --amp-radius-md: 6px;
+  --amp-radius-lg: 8px;
+  --amp-radius-xl: 12px;
+}
+
+/* -------------------------------------------------------------------- */
+/* Semantic — dark theme                                                 */
+/* -------------------------------------------------------------------- */
+[data-theme='dark'] {
+  --amp-bg-page: #191918;
+  --amp-bg-subtle: #1F1E1C;
+  --amp-bg-hover: #2B2A27;
+  --amp-bg-active: #3A3936;
+  --amp-surface: #232220;
+  --amp-surface-overlay: rgba(0, 0, 0, 0.55);
+  --amp-border-default: #3A3936;
+  --amp-border-strong: #454440;
+  --amp-text-primary: #EDECEA;
+  --amp-text-secondary: #A5A49E;
+  --amp-text-tertiary: #807F7A;
+  --amp-text-inverse: #1B1A18;
+  --amp-text-on-accent: #FFFFFF;
+  --amp-accent: var(--amp-blue-400);
+  --amp-accent-hover: var(--amp-blue-300);
+  --amp-accent-active: var(--amp-blue-200);
+  --amp-accent-subtle: rgba(13, 162, 231, 0.12);
+  --amp-accent-text: var(--amp-blue-400);
+  --amp-status-available-bg: rgba(34, 160, 107, 0.14);
+  --amp-status-inuse-bg: rgba(232, 147, 12, 0.14);
+  --amp-status-outoforder-bg: rgba(217, 56, 56, 0.14);
+  --amp-status-unknown-bg: rgba(165, 164, 158, 0.14);
+  --amp-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --amp-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --amp-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --amp-focus-ring: 0 0 0 2px var(--amp-bg-page), 0 0 0 4px var(--amp-blue-400);
+}
+
+/* Calm motion: collapse all durations under reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --amp-dur-fast: 0ms;
+    --amp-dur-base: 0ms;
+    --amp-dur-slow: 0ms;
+  }
+}

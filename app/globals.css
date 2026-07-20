@@ -1,17 +1,103 @@
+@import './tokens.css';
 @import 'leaflet/dist/leaflet.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Focus is visible only on :focus-visible, always via the Ampere ring. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--amp-focus-ring);
+}
+
+::selection {
+  background: var(--amp-accent-subtle);
+}
+
+/* Autofilled inputs must not flash the browser's default white/blue in dark. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--amp-text-primary);
+  -webkit-box-shadow: 0 0 0 1000px var(--amp-surface) inset;
+  caret-color: var(--amp-text-primary);
+}
+
+/* Overlay + modal entrance: fade / fade + 2 px rise. Durations come from
+   tokens, so prefers-reduced-motion collapses them to 0 ms automatically. */
+@keyframes amp-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes amp-rise-in {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.amp-overlay {
+  animation: amp-fade-in var(--amp-dur-base) var(--amp-ease);
+}
+.amp-modal {
+  animation: amp-rise-in var(--amp-dur-base) var(--amp-ease);
+}
+
+/* Hover-revealed secondary row actions (Ampere principle 3): hidden until
+   hover/focus on pointer devices, always visible on touch. */
+@media (pointer: coarse) {
+  .amp-hover-reveal {
+    opacity: 1 !important;
+  }
+}
+
 /* Leaflet renders into a zero-height container unless the parent chain has an
    explicit height — the dashboard gives it one, this makes the map fill it. */
 .leaflet-container {
   height: 100%;
   width: 100%;
+  background: var(--amp-bg-subtle);
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Leaflet popups have a white body; keep their text readable on it. */
+/* Theme Leaflet chrome with semantic tokens so dark mode stays coherent. */
+.leaflet-popup-content-wrapper {
+  background: var(--amp-surface);
+  color: var(--amp-text-primary);
+  border: 1px solid var(--amp-border-default);
+  border-radius: var(--amp-radius-lg);
+  box-shadow: var(--amp-shadow-md);
+}
+.leaflet-popup-tip {
+  background: var(--amp-surface);
+  border: 1px solid var(--amp-border-default);
+  box-shadow: var(--amp-shadow-sm);
+}
 .leaflet-popup-content {
-  color: #1c1917;
+  color: var(--amp-text-primary);
+}
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--amp-text-tertiary);
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: var(--amp-text-primary);
+}
+.leaflet-bar {
+  border-color: var(--amp-border-default);
+  box-shadow: var(--amp-shadow-sm);
+}
+.leaflet-bar a {
+  background: var(--amp-surface);
+  color: var(--amp-text-primary);
+  border-bottom-color: var(--amp-border-default);
+}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+  background: var(--amp-bg-hover);
+  color: var(--amp-text-primary);
+}
+.leaflet-container .leaflet-control-attribution {
+  background: var(--amp-surface);
+  color: var(--amp-text-secondary);
+}
+.leaflet-container .leaflet-control-attribution a {
+  color: var(--amp-accent-text);
 }

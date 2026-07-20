@@ -49,32 +49,35 @@ export default function LocationPermissionBanner({ onRetry }: { onRetry: () => v
   useEffect(() => setBrowser(detectBrowser()), []);
 
   return (
-    <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+    <div className="rounded-lg border border-default bg-surface p-4 shadow-md">
       <div className="flex items-start gap-3">
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.8"
-          className="mt-0.5 h-5 w-5 shrink-0 text-amber-600"
+          strokeWidth="1.5"
+          className="mt-0.5 h-5 w-5 shrink-0 text-tertiary"
+          aria-hidden="true"
         >
           <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" />
           <circle cx="12" cy="10" r="2.5" />
         </svg>
         <div>
-          <p className="font-semibold text-amber-900">Location access is blocked</p>
-          <p className="mt-1 text-sm text-stone-700">
+          <p className="text-[14px] font-semibold leading-[20px] text-primary">
+            Location access is blocked
+          </p>
+          <p className="mt-1 text-[14px] leading-[20px] text-secondary">
             Chargewise needs your position to find chargers around you. Your
             location never leaves your browser. To re-enable it in {LABEL[browser]}:
           </p>
-          <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-stone-600">
+          <ol className="mt-2 list-decimal space-y-1 pl-5 text-[14px] leading-[20px] text-secondary">
             {INSTRUCTIONS[browser].map((step) => (
               <li key={step}>{step}</li>
             ))}
           </ol>
           <button
             onClick={onRetry}
-            className="mt-3 rounded-md bg-stone-900 px-4 py-1.5 text-sm font-semibold text-white transition hover:bg-stone-700"
+            className="mt-4 h-8 rounded-md bg-accent px-4 text-[13px] font-semibold leading-[18px] text-on-accent transition-colors duration-fast ease-amp hover:bg-accent-hover active:bg-accent-active"
           >
             Try again
           </button>

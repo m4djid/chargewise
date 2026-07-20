@@ -77,40 +77,44 @@ export default function BadgeSelector({ onAdded }: BadgeSelectorProps) {
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search eMSP or plan (e.g. Chargemap, IONITY+)…"
         aria-label="Search plans"
-        className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
+        className="h-10 w-full rounded-md border border-default bg-surface px-3 text-[14px] leading-[20px] text-primary outline-none transition-shadow duration-fast ease-amp placeholder:text-tertiary focus-visible:shadow-focus"
       />
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-2 text-[13px] leading-[18px] text-status-danger">{error}</p>}
 
       <div className="mt-3 max-h-96 space-y-4 overflow-y-auto pr-1">
-        {isLoading && <p className="text-sm text-stone-500">Loading plans…</p>}
+        {isLoading && <p className="text-[14px] leading-[20px] text-tertiary">Loading plans…</p>}
         {!isLoading && grouped.length === 0 && (
-          <p className="text-sm text-stone-500">No plans match your search.</p>
+          <p className="text-[14px] leading-[20px] text-tertiary">No plans match your search.</p>
         )}
         {grouped.map(({ emsp, plans: emspPlans }) => (
           <div key={emsp.id}>
-            <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
+            <p className="text-[12px] font-semibold uppercase leading-[16px] tracking-wide text-tertiary">
               {emsp.display_name}
             </p>
-            <ul className="mt-1.5 space-y-1.5">
+            <ul className="mt-2 space-y-2">
               {emspPlans.map((plan) => (
                 <li
                   key={plan.id}
-                  className="flex items-center justify-between gap-3 rounded-lg border border-stone-200 bg-white px-3 py-2"
+                  className="flex items-center justify-between gap-3 rounded-lg border border-default bg-surface px-3 py-2"
                 >
-                  <div className="text-sm">
-                    <p className="font-medium text-stone-900">{plan.display_name}</p>
-                    <p className="text-xs text-stone-500">
-                      {plan.monthly_fee_eur != null
-                        ? `€${plan.monthly_fee_eur.toFixed(2)}/mo`
-                        : 'Free'}
+                  <div>
+                    <p className="text-[14px] font-medium leading-[20px] text-primary">
+                      {plan.display_name}
+                    </p>
+                    <p className="text-[12px] leading-[16px] text-tertiary">
+                      {plan.monthly_fee_eur != null ? (
+                        <span className="font-mono">€{plan.monthly_fee_eur.toFixed(2)}/mo</span>
+                      ) : (
+                        'Free'
+                      )}
                     </p>
                   </div>
                   <button
                     onClick={() => add(plan)}
                     disabled={addingId === plan.id || justAdded.has(plan.id)}
-                    className="shrink-0 rounded-md bg-stone-900 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-stone-700 disabled:opacity-50"
+                    className="h-8 shrink-0 rounded-md bg-accent px-3 text-[12px] font-semibold leading-[16px] text-on-accent transition-colors duration-fast ease-amp hover:bg-accent-hover active:bg-accent-active disabled:opacity-50"
                   >
-                    {justAdded.has(plan.id) ? 'Added ✓' : addingId === plan.id ? 'Adding…' : 'Add'}
+                    {justAdded.has(plan.id) ? 'Added' : addingId === plan.id ? 'Adding…' : 'Add'}
                   </button>
                 </li>
               ))}

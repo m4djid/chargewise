@@ -17,7 +17,7 @@ import type { StationWithDistance } from '@/types/database';
 // Leaflet touches window — must never render on the server.
 const StationMap = dynamic(() => import('@/components/StationMap'), {
   ssr: false,
-  loading: () => <div className="h-full w-full animate-pulse rounded-lg bg-stone-100" />,
+  loading: () => <div className="h-full w-full animate-pulse rounded-lg bg-subtle" />,
 });
 
 const SESSION_KWH = 30; // default session size (spec §6.4)
@@ -34,24 +34,28 @@ const CITY_PRESETS = [
 
 function Spinner({ label }: { label: string }) {
   return (
-    <div className="flex flex-col items-center gap-3 py-20 text-stone-500">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-stone-200 border-t-stone-900" />
-      <p className="text-sm">{label}</p>
+    <div className="flex flex-col items-center gap-3 py-20 text-tertiary">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-border-default border-t-accent" />
+      <p className="text-[14px] leading-[20px]">{label}</p>
     </div>
   );
 }
 
 function CityFallback({ onPick }: { onPick: (c: { lat: number; lng: number }) => void }) {
   return (
-    <div className="rounded-lg border border-stone-200 bg-white p-5 text-center shadow-sm">
-      <p className="font-semibold text-stone-900">We couldn&apos;t determine your position</p>
-      <p className="mt-1 text-sm text-stone-600">Pick a city to browse chargers instead:</p>
-      <div className="mt-3 flex flex-wrap justify-center gap-2">
+    <div className="rounded-lg border border-default bg-surface p-6 text-center shadow-sm">
+      <p className="text-[14px] font-semibold leading-[20px] text-primary">
+        We couldn&apos;t determine your position
+      </p>
+      <p className="mt-1 text-[14px] leading-[20px] text-secondary">
+        Pick a city to browse chargers instead:
+      </p>
+      <div className="mt-4 flex flex-wrap justify-center gap-2">
         {CITY_PRESETS.map((c) => (
           <button
             key={c.name}
             onClick={() => onPick(c)}
-            className="rounded-lg border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-stone-700 shadow-sm transition hover:bg-stone-50 hover:text-stone-900"
+            className="h-8 rounded-md border border-default bg-surface px-4 text-[14px] font-medium leading-[20px] text-primary transition-colors duration-fast ease-amp hover:bg-hover"
           >
             {c.name}
           </button>
@@ -153,17 +157,19 @@ function Dashboard() {
   return (
     <div>
       {/* Toolbar */}
-      <div className="mb-3 flex flex-wrap items-center gap-2">
-        <div className="flex rounded-lg border border-stone-200 bg-stone-50 p-0.5 text-sm">
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        <div className="flex rounded-lg border border-default bg-subtle p-1 text-[14px] leading-[20px]">
           {RADII.map((r) => (
             <button
               key={r}
               onClick={() => setRadius(r)}
-              className={`rounded-md px-3 py-1.5 transition ${
-                radius === r ? 'bg-white font-semibold text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-900'
+              className={`h-8 rounded-md px-3 transition-colors duration-fast ease-amp ${
+                radius === r
+                  ? 'bg-surface font-semibold text-accent-text shadow-sm'
+                  : 'text-secondary hover:text-primary'
               }`}
             >
-              {r} km
+              <span className="font-mono">{r}</span> km
             </button>
           ))}
         </div>
@@ -171,14 +177,18 @@ function Dashboard() {
           {permission === 'default' && (
             <button
               onClick={subscribe}
-              className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 shadow-sm transition hover:bg-stone-50 hover:text-stone-900"
+              className="flex h-8 items-center gap-2 rounded-md border border-default bg-surface px-3 text-[14px] leading-[20px] text-primary transition-colors duration-fast ease-amp hover:bg-hover"
             >
-              🔔 Enable alerts
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4" aria-hidden="true">
+                <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+              </svg>
+              Enable alerts
             </button>
           )}
           <button
             onClick={() => openLogSession()}
-            className="rounded-lg bg-stone-900 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-stone-700"
+            className="h-8 rounded-md bg-accent px-3 text-[14px] font-semibold leading-[20px] text-on-accent transition-colors duration-fast ease-amp hover:bg-accent-hover active:bg-accent-active"
           >
             Log my session
           </button>
@@ -202,7 +212,7 @@ function Dashboard() {
       {pos && (
         <div className="space-y-4">
           {/* Map on top (45vh), scrollable card list below */}
-          <div className="h-[45vh] overflow-hidden rounded-lg border border-stone-200">
+          <div className="h-[45vh] overflow-hidden rounded-lg border border-default">
             <StationMap
               center={pos}
               stations={stations}
@@ -213,13 +223,13 @@ function Dashboard() {
 
           {isLoading && <Spinner label="Finding chargers near you…" />}
           {error && (
-            <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+            <p className="rounded-lg border border-status-danger bg-status-danger-bg p-3 text-[14px] leading-[20px] text-status-danger">
               Could not load nearby stations. Pull to refresh or try again shortly.
             </p>
           )}
           {!isLoading && !error && stations.length === 0 && (
-            <p className="rounded-lg border border-stone-200 bg-stone-50 p-4 text-center text-sm text-stone-600">
-              No chargers within {radius} km. Try a wider radius.
+            <p className="rounded-lg border border-default bg-subtle p-4 text-center text-[14px] leading-[20px] text-secondary">
+              No chargers within <span className="font-mono">{radius}</span> km. Try a wider radius.
             </p>
           )}
 

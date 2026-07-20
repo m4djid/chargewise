@@ -22,6 +22,10 @@ function today(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+const fieldClasses =
+  'h-10 w-full rounded-md border border-default bg-surface px-3 text-[14px] leading-[20px] text-primary outline-none transition-shadow duration-fast ease-amp placeholder:text-tertiary focus-visible:shadow-focus';
+const labelClasses = 'mb-1 block text-[13px] leading-[18px] text-secondary';
+
 export default function SessionFeedbackModal({
   open,
   onClose,
@@ -105,42 +109,51 @@ export default function SessionFeedbackModal({
 
   return (
     <div
-      className="fixed inset-0 z-[1300] flex items-end justify-center bg-stone-900/20 p-4 sm:items-center"
+      className="amp-overlay fixed inset-0 z-[1300] flex items-end justify-center bg-[var(--amp-surface-overlay)] p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
       aria-label="Log a charging session"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-lg border border-stone-200 bg-white p-5 shadow-lg"
+        className="amp-modal w-full max-w-md rounded-xl border border-default bg-surface p-6 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
         {phase === 'success' ? (
           <div className="py-6 text-center">
-            <p className="text-3xl">⚡</p>
-            <p className="mt-2 text-lg font-semibold text-stone-900">
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="mx-auto h-8 w-8 text-accent"
+              aria-hidden="true"
+            >
+              <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+            </svg>
+            <p className="mt-2 text-[16px] font-semibold leading-[24px] text-primary">
               Thanks! Every report makes prices sharper.
             </p>
             <button
               onClick={onClose}
-              className="mt-5 rounded-lg bg-stone-900 px-6 py-2 font-semibold text-white hover:bg-stone-700"
+              className="mt-6 h-11 rounded-md bg-accent px-6 text-[14px] font-semibold leading-[20px] text-on-accent transition-colors duration-fast ease-amp hover:bg-accent-hover active:bg-accent-active"
             >
               Done
             </button>
           </div>
         ) : (
           <form onSubmit={submit}>
-            <h2 className="text-lg font-semibold text-stone-900">Log your charging session</h2>
-            <p className="mt-1 text-sm text-stone-600">
+            <h2 className="font-display text-[20px] font-semibold leading-[28px] text-primary">
+              Log your charging session
+            </h2>
+            <p className="mt-1 text-[14px] leading-[20px] text-secondary">
               Your report helps everyone see real prices.
             </p>
 
             <div className="mt-4 space-y-4">
               {/* Station: read-only if prefilled, otherwise pick from nearby */}
               <div>
-                <label className="mb-1 block text-sm text-stone-600">Station</label>
+                <label className={labelClasses}>Station</label>
                 {prefill?.station_id ? (
-                  <p className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-600">
+                  <p className="flex h-10 items-center rounded-md border border-default bg-subtle px-3 text-[14px] leading-[20px] text-secondary">
                     {stationName ?? prefill.station_id}
                   </p>
                 ) : stations.length > 0 ? (
@@ -148,7 +161,7 @@ export default function SessionFeedbackModal({
                     required
                     value={stationId}
                     onChange={(e) => setStationId(e.target.value)}
-                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
+                    className={fieldClasses}
                   >
                     <option value="">Select a nearby station…</option>
                     {stations.map((s) => (
@@ -163,13 +176,13 @@ export default function SessionFeedbackModal({
                     value={stationId}
                     onChange={(e) => setStationId(e.target.value)}
                     placeholder="Station ID (e.g. FR*CM*E12345)"
-                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
+                    className={fieldClasses}
                   />
                 )}
               </div>
 
               <div>
-                <label htmlFor="sf-plan" className="mb-1 block text-sm text-stone-600">
+                <label htmlFor="sf-plan" className={labelClasses}>
                   Badge used
                 </label>
                 <select
@@ -177,7 +190,7 @@ export default function SessionFeedbackModal({
                   required
                   value={planId}
                   onChange={(e) => setPlanId(e.target.value)}
-                  className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
+                  className={fieldClasses}
                 >
                   <option value="">Select your badge…</option>
                   {/* Prefilled recommendation plan may not be a badge yet */}
@@ -196,7 +209,7 @@ export default function SessionFeedbackModal({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label htmlFor="sf-cost" className="mb-1 block text-sm text-stone-600">
+                  <label htmlFor="sf-cost" className={labelClasses}>
                     Cost (€) *
                   </label>
                   <input
@@ -209,11 +222,11 @@ export default function SessionFeedbackModal({
                     inputMode="decimal"
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
-                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
+                    className={`${fieldClasses} font-mono`}
                   />
                 </div>
                 <div>
-                  <label htmlFor="sf-kwh" className="mb-1 block text-sm text-stone-600">
+                  <label htmlFor="sf-kwh" className={labelClasses}>
                     kWh (optional)
                   </label>
                   <input
@@ -225,13 +238,13 @@ export default function SessionFeedbackModal({
                     inputMode="decimal"
                     value={kwh}
                     onChange={(e) => setKwh(e.target.value)}
-                    className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
+                    className={`${fieldClasses} font-mono`}
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="sf-date" className="mb-1 block text-sm text-stone-600">
+                <label htmlFor="sf-date" className={labelClasses}>
                   Date
                 </label>
                 <input
@@ -241,25 +254,25 @@ export default function SessionFeedbackModal({
                   max={today()}
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-900 shadow-sm outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500"
+                  className={`${fieldClasses} font-mono`}
                 />
               </div>
             </div>
 
-            {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+            {error && <p className="mt-3 text-[13px] leading-[18px] text-status-danger">{error}</p>}
 
-            <div className="mt-5 flex gap-2">
+            <div className="mt-6 flex gap-2">
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 rounded-lg border border-stone-200 bg-white py-2.5 text-sm font-medium text-stone-700 shadow-sm hover:bg-stone-50"
+                className="h-11 flex-1 rounded-md border border-default bg-surface text-[14px] font-medium leading-[20px] text-primary transition-colors duration-fast ease-amp hover:bg-hover"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={!valid || phase === 'submitting'}
-                className="flex-1 rounded-lg bg-stone-900 py-2.5 text-sm font-semibold text-white transition hover:bg-stone-700 disabled:opacity-50"
+                className="h-11 flex-1 rounded-md bg-accent text-[14px] font-semibold leading-[20px] text-on-accent transition-colors duration-fast ease-amp hover:bg-accent-hover active:bg-accent-active disabled:opacity-50"
               >
                 {phase === 'submitting' ? 'Saving…' : 'Save session'}
               </button>

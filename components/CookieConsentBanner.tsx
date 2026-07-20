@@ -26,22 +26,22 @@ export default function CookieConsentBanner() {
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[1200] border-t border-stone-200 bg-white p-4 shadow-sm">
+    <div className="fixed inset-x-0 bottom-0 z-[1200] border-t border-default bg-surface p-4 shadow-md">
       <div className="mx-auto flex max-w-3xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-stone-600">
+        <p className="text-[13px] leading-[18px] text-secondary">
           We use privacy-friendly analytics (PostHog, EU-hosted) to improve
           Chargewise. No personal data, no ads, no third-party tracking.
         </p>
         <div className="flex shrink-0 gap-2">
           <button
             onClick={() => decide('denied')}
-            className="rounded-md border border-stone-200 bg-white px-4 py-2 text-sm text-stone-700 shadow-sm hover:bg-stone-50"
+            className="h-10 rounded-md border border-default bg-surface px-4 text-[14px] leading-[20px] text-primary transition-colors duration-fast ease-amp hover:bg-hover"
           >
             Decline
           </button>
           <button
             onClick={() => decide('granted')}
-            className="rounded-md bg-stone-900 px-4 py-2 text-sm font-semibold text-white hover:bg-stone-700"
+            className="h-10 rounded-md bg-accent px-4 text-[14px] font-semibold leading-[20px] text-on-accent transition-colors duration-fast ease-amp hover:bg-accent-hover active:bg-accent-active"
           >
             Accept analytics
           </button>
